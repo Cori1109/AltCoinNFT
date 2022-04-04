@@ -1,20 +1,31 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
+// @title:      Steak In Pool
+// @twitter:    https://twitter.com/SteakInPool
+// @url:        https://www.steakinpool.com/
+
+/*
+ *  ▄▀▀▀ ▀▀█▀▀ █▀▀▀ ▄▀▀▄ █  ▄▀   ▀█▀ █▄  █   █▀▀▄ ▄▀▀▄ ▄▀▀▄  █   
+ *  ▀▄▄    █   █▄▄▄ █▄▄█ █▄▀      █  █ █ █   █▄▄▀ █  █ █  █  █
+ *     █   █   █    █  █ █ ▀▄     █  █ ▀▄█   █    █  █ █  █  █    
+ *  ▀▀▀    ▀   ▀▀▀▀ ▀  ▀ ▀   ▀   ▀▀▀ ▀   ▀   ▀     ▀▀   ▀▀   ▀▀▀▀
+ */
+
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-
-contract AltcoinNFT is ERC721Enumerable, Ownable, ReentrancyGuard {
+// deploy on the Polygon Network
+contract SteakInPool is ERC721Enumerable, Ownable, ReentrancyGuard {
     using SafeMath for uint256;
 
     // constants
     uint256 private MAX_ELEMENTS = 10000;
     uint256 public PURCHASE_LIMIT = 10;
     uint256[] public LEVEL_MAX = [3800, 6300, 8200, 9200, 10000];
-    uint256[] public LEVEL_PRICE = [0.01 ether, 0.02 ether, 0.08 ether, 0.16 ether, 0.32 ether];
+    uint256[] public LEVEL_PRICE = [1000 ether, 2000 ether, 8000 ether, 16000 ether, 32000 ether]; // 1 ether means 1 MATIC
     uint256[] public _tokenIdTracker = [0, 3800, 6300, 8200, 9200];
 
     // state variable

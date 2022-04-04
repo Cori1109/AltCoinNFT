@@ -15,6 +15,7 @@ export default function Mint(props) {
   const [assetURIs, setAssetURIs] = useState([]);
   const [sum, setSum] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [mintedCNT, setMintedCNT] = useState([]);
 
   const [cntStarter, setCntStarter] = useState(0);
   const [cntBronze, setCntBronze] = useState(0);
@@ -70,6 +71,11 @@ export default function Mint(props) {
     let claimedPerWallet = web3.utils.toDecimal(
       await SIPContract._allowListClaimed()
     );
+    let _mintedcnt = [0, 0, 0, 0, 0];
+    for (let i = 0; i < 5; i++) {
+      _mintedcnt[i] = await SIPContract._tokenIdTracker(i);
+    }
+    setMintedCNT(_mintedcnt);
 
     if (totalSupply === MAX_ELEMENTS) {
       console.log("Sold Out");
@@ -168,6 +174,7 @@ export default function Mint(props) {
             <NFTCard
               name={NFT["starter"].name}
               unit={NFT["starter"].price}
+              minted={mintedCNT[0]}
               total={NFT["starter"].total}
               image={"/token_data/exobit_1.png"}
               doMint={(cntMint) => handleChangeStarter(cntMint)}
@@ -176,6 +183,7 @@ export default function Mint(props) {
             <NFTCard
               name={NFT["bronze"].name}
               unit={NFT["bronze"].price}
+              minted={mintedCNT[1]}
               total={NFT["bronze"].total}
               image={"/token_data/exobit_2.png"}
               doMint={(cntMint) => handleChangeBronze(cntMint)}
@@ -184,6 +192,7 @@ export default function Mint(props) {
             <NFTCard
               name={NFT["silver"].name}
               unit={NFT["silver"].price}
+              minted={mintedCNT[2]}
               total={NFT["silver"].total}
               image={"/token_data/exobit_3.png"}
               doMint={(cntMint) => handleChangeSilver(cntMint)}
@@ -192,6 +201,7 @@ export default function Mint(props) {
             <NFTCard
               name={NFT["gold"].name}
               unit={NFT["gold"].price}
+              minted={mintedCNT[3]}
               total={NFT["gold"].total}
               image={"/token_data/exobit_4.png"}
               doMint={(cntMint) => handleChangeGold(cntMint)}
@@ -200,6 +210,7 @@ export default function Mint(props) {
             <NFTCard
               name={NFT["platinum"].name}
               unit={NFT["platinum"].price}
+              minted={mintedCNT[4]}
               total={NFT["platinum"].total}
               image={"/token_data/exobit_1.png"}
               doMint={(cntMint) => handleChangePlatinum(cntMint)}

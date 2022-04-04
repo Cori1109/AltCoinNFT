@@ -48,11 +48,11 @@ function App() {
                   <li>
                     <Link to="/mint">Mint</Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link to="/gallery">Gallery</Link>
-                  </li>
+                  </li> */}
                   <li>
-                    <Link to="/mytokens">My Exobits</Link>
+                    <Link to="/mytokens">My NFTs</Link>
                   </li>
                 </>
               )}

@@ -15,7 +15,6 @@ export default function Mint(props) {
   const [assetURIs, setAssetURIs] = useState([]);
   const [sum, setSum] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [mintedCNT, setMintedCNT] = useState([]);
 
   const [cntStarter, setCntStarter] = useState(0);
   const [cntBronze, setCntBronze] = useState(0);
@@ -23,6 +22,8 @@ export default function Mint(props) {
   const [cntGold, setCntGold] = useState(0);
   const [cntPlatinum, setCntPlatinum] = useState(0);
   const MAX_ELEMENTS = 100000;
+  const LEVEL_STARTID = [0, 3800, 6300, 8200, 9200];
+  let mintedCNT = [0, 0, 0, 0, 0];
 
   const NFT = {
     starter: {
@@ -52,11 +53,12 @@ export default function Mint(props) {
     },
   };
 
-  useEffect(() => {
-    getParams();
+  useEffect(async () => {
+    await getParams();
   });
 
   const getParams = async () => {
+    console.log("getParams:!!!");
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const SIPContract = new ethers.Contract(
       process.env.REACT_APP_NFT_ADDRESS,
@@ -65,17 +67,20 @@ export default function Mint(props) {
     );
 
     let pauseVal = await SIPContract.MINTING_PAUSED();
+    console.log("Ispaused:", pauseVal);
     setIsPaused(pauseVal);
 
     let totalSupply = web3.utils.toDecimal(await SIPContract.totalSupply());
     let claimedPerWallet = web3.utils.toDecimal(
-      await SIPContract._allowListClaimed()
+      await SIPContract._allowListClaimed(props.address)
     );
-    let _mintedcnt = [0, 0, 0, 0, 0];
+    console.log("claimed Per wallet:", claimedPerWallet);
     for (let i = 0; i < 5; i++) {
-      _mintedcnt[i] = await SIPContract._tokenIdTracker(i);
+      mintedCNT[i] =
+        web3.utils.toDecimal(await SIPContract._tokenIdTracker(i)) -
+        LEVEL_STARTID[i];
     }
-    setMintedCNT(_mintedcnt);
+    console.log("Minted per Level:", mintedCNT);
 
     if (totalSupply === MAX_ELEMENTS) {
       console.log("Sold Out");

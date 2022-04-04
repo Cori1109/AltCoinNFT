@@ -4,7 +4,7 @@ import Web3 from "web3";
 import AltcoinNFT from "../contract/AltcoinNFT.json";
 
 export default function Login(props) {
-  const contractAddress = "0xE7046373c0D9e74529362B0A98F9F7784bF46B4D";
+  const contractAddress = process.env.REACT_APP_NFT_ADDRESS;
 
   const DoConnect = async () => {
     console.log("Connecting....");

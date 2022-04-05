@@ -34,7 +34,6 @@ contract SteakInPool is ERC721Enumerable, Ownable, ReentrancyGuard {
     string public baseTokenURI;
     
     mapping(uint256 => address) private claimedList;
-    mapping(address => uint256) private _allowListClaimed;
 
     constructor() ERC721("Steak In Pool", "SIP"){
     }
@@ -63,14 +62,13 @@ contract SteakInPool is ERC721Enumerable, Ownable, ReentrancyGuard {
         }
 
         require(totalSupply() + numOt < MAX_ELEMENTS, "Purchase would exceed max supply");
-        require(_allowListClaimed[msg.sender] + numOt <= maxItemsPerWallet, "Purchase exceeds max allowed");
+        require(balanceOf(msg.sender) + numOt <= maxItemsPerWallet, "Purchase exceeds max allowed");
         require(price <= msg.value, "Payment amount is not sufficient");
 
         for (uint256 i = 0; i < 5; i++) {
             for (uint256 j = 0; j < numberOfTokens[i]; j++) {
                 _tokenIdTracker[i]++;
                 claimedList[_tokenIdTracker[i]] = msg.sender; // should be checked
-                _allowListClaimed[msg.sender] ++;
                 _safeMint(msg.sender, _tokenIdTracker[i]);
             }
         }

@@ -1,7 +1,7 @@
 import React from "react";
 import Web3 from "web3";
 
-import SteakInPool from "../contract/SteakInPool.json";
+import SteakInPool from "../config/SteakInPool.json";
 import Wallet from "./wallet";
 
 export default function Login(props) {

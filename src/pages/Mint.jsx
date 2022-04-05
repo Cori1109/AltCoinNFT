@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import toast, { Toast } from "react-hot-toast";
 import web3 from "web3";
-import ContractAbi from "../contract/SteakInPool.json";
+import ContractAbi from "../config/SteakInPool.json";
 import { Button, Card } from "react-bootstrap";
 import NFTCard from "../components/NFTCard";
 require("dotenv").config();

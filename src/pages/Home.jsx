@@ -1,11 +1,22 @@
 import React from "react";
+import About from "../components/About";
+import Dashboard from "../components/Dashboard";
+import Faq from "../components/Faq";
+import Feature from "../components/Feature";
+import Roadmap from "../components/Roadmap";
+import Team from "../components/Team";
+import BackTop from "../components/backtotop";
 
 export default function Home() {
   return (
     <div className="page home">
-      <h1>Gently Used NFTs Looking For A new Home</h1>
-      <p>Click the "Connect Wallet" Button above to access the minting page.</p>
-      <img src="hero.png" alt="Hero" width="100%" />
+      <Dashboard />
+      <About />
+      <Feature />
+      <Roadmap />
+      <Team />
+      <BackTop />
+      <Faq />
     </div>
   );
 }

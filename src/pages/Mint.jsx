@@ -202,7 +202,7 @@ export default function Mint(props) {
               color={NFT["starter"].color}
               minted={mintedCNT[0]}
               total={NFT["starter"].total}
-              image={"/token_data/exobit_1.png"}
+              image={"images/1.jpg"}
               doMint={(cntMint) => handleChangeStarter(cntMint)}
             ></NFTCard>
 
@@ -212,7 +212,7 @@ export default function Mint(props) {
               color={NFT["bronze"].color}
               minted={mintedCNT[1]}
               total={NFT["bronze"].total}
-              image={"/token_data/exobit_2.png"}
+              image={"images/2.jpg"}
               doMint={(cntMint) => handleChangeBronze(cntMint)}
             ></NFTCard>
 
@@ -222,7 +222,7 @@ export default function Mint(props) {
               color={NFT["silver"].color}
               minted={mintedCNT[2]}
               total={NFT["silver"].total}
-              image={"/token_data/exobit_3.png"}
+              image={"images/3.jpg"}
               doMint={(cntMint) => handleChangeSilver(cntMint)}
             ></NFTCard>
 
@@ -232,7 +232,7 @@ export default function Mint(props) {
               color={NFT["gold"].color}
               minted={mintedCNT[3]}
               total={NFT["gold"].total}
-              image={"/token_data/exobit_4.png"}
+              image={"images/4.jpg"}
               doMint={(cntMint) => handleChangeGold(cntMint)}
             ></NFTCard>
 
@@ -242,7 +242,7 @@ export default function Mint(props) {
               color={NFT["platinum"].color}
               minted={mintedCNT[4]}
               total={NFT["platinum"].total}
-              image={"/token_data/exobit_1.png"}
+              image={"images/5.jpg"}
               doMint={(cntMint) => handleChangePlatinum(cntMint)}
             ></NFTCard>
           </div>

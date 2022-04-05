@@ -1,4 +1,4 @@
-# ![ALTCOINNFT Logo] nft-minting-website-example
+# ![ALTCOINNFT Logo] steak-in-pool
 
 ## ALTCOINNFT
 
@@ -14,7 +14,7 @@ A complete NFT website with Minting and Gallery features. Based off of the ExoBi
 
 ## Article
 
-This project accompanies ["How To Build An NFT Website"](https://medium.com/@greenzeta/how-to-build-an-nft-website-b66431560fff) on Medium. The article explains everything you need to get started building an NFT website. Including: Contract deployment and interaction with a live contract using [Web3.js](https://github.com/ChainSafe/web3.js). Though this project stands by itself, it is recommended that you follow the full tutorial for a complete understanding.
+This project accompanies ["How To Build An NFT Website"](#article) on Medium. The article explains everything you need to get started building an NFT website. Including: Contract deployment and interaction with a live contract using [Web3.js](https://github.com/ChainSafe/web3.js). Though this project stands by itself, it is recommended that you follow the full tutorial for a complete understanding.
 
 ## Setup
 

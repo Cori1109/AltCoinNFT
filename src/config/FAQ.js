@@ -3,21 +3,19 @@ export default {
     {
       question: "WHEN IS THE SALE?",
       answer:
-        "<p>The privatesale will open on Saturday 12 March and last for 8hrs from 5PM EST.</p>" +
-        "<p>Whitelisted members will be able to mint a maximum of 2 NFTs per registered address at a reduced price of 0.2 Eth + gas fees per NFT.</p>" +
-        "<p>Our general sale event will take place on Sunday 13rd March from 5PM EST.</p>" +
-        "<p>General public will be able to mint up to 4 NFTs per address at a price of 0.25 Eth +gas fees per NFT.</p>",
+        "<p>The minting will open on Saturday 12 April and last for 8hrs from 5PM EST.</p>" +
+        "<p>There are 5 level of NFTs, they will be identical except for being different colors, prices and the rewards they earn.</p>",
       collapse: true,
     },
     {
-      question: "WHAT IS C3S NFT?",
+      question: "WHAT IS SIP NFT?",
       answer:
-        "<p>The C3S NFT is a community of humans who believe in the future of crypto, enjoy hanging out, and realize.</p>",
+        "<p>The SIP NFT is a community of humans who believe in the future of crypto, they will be identical except for being different colors, prices and the rewards they earn. </p>",
       collapse: true,
     },
     {
       question: "WHAT IS THE TOTAL NUMBER OF NFTS?",
-      answer: "5439",
+      answer: "10000",
       collapse: true,
     },
     {
@@ -26,9 +24,9 @@ export default {
       collapse: true,
     },
     {
-      question: "HOW CAN I BUY A C3S NFT COLLECTIBLE?",
+      question: "HOW CAN I BUY A SIP NFT COLLECTIBLE?",
       answer:
-        "<p>1. Go to website - https://c3snft.com</p>" +
+        "<p>1. Go to website - https://SIPnft.com</p>" +
         '<p>2. Connect your wallet using the button - "Connect"</p>' +
         '<p>3. Press the button - "MINT"</p>' +
         '<p>4. Select the desired number of collectibles to buy and press the button - "MINT"</p>',
@@ -36,13 +34,13 @@ export default {
     },
     {
       question: "HOW MUCH DOES IT COST TO MINT?",
-      answer: ".25 ETH + gas",
+      answer: "0.02 ETH + gas",
       collapse: true,
     },
     {
       question:
-        "IS THERE A LIMIT TO THE NUMBER OF C3S NFT COLLECTIBLES I CAN MINT?",
-      answer: "6",
+        "IS THERE A LIMIT TO THE NUMBER OF SIP NFT COLLECTIBLES I CAN MINT?",
+      answer: "10",
       collapse: true,
     },
     {
@@ -58,9 +56,13 @@ export default {
       collapse: true,
     },
     {
-      question: "WILL THERE BE A WHITELIST?",
+      question: "WhAT ARE THE LEVEL OF NFTS?",
       answer:
-        "Yes! There will be 1500 spots. A selected number of active members will be granted a spot in our whitelist and be able to mint 2 NFTs each prior to the sale at a lower price of 0.2 ETH. Users who are supportive of the project and active in our Discord will occasionally be handpicked by our team, so make sure to be active, add to the conversation, help newcomers, and be respectful to others and you might just win a spot on our whitelist. We will also be doing giveaways and raffles.",
+        "<p>LEVEL1: STARTER</p>" +
+        "<p>LEVEL2: BRONZE</p>" +
+        "<p>LEVEL3: SILVER</p>" +
+        "<p>LEVEL4: GOLD</p>" +
+        "<p>LEVEL5: PLATINUM</p>",
       collapse: true,
     },
   ],

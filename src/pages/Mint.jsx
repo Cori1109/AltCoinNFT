@@ -24,7 +24,7 @@ export default function Mint(props) {
   const [cntGold, setCntGold] = useState(0);
   const [cntPlatinum, setCntPlatinum] = useState(0);
   const MAX_ELEMENTS = 100000;
-  const [mintedCNT, setMintedCNT] = useState([]);
+  const [mintedCNT, setMintedCNT] = useState([0, 0, 0, 0, 0]);
 
   const NFT = {
     starter: {

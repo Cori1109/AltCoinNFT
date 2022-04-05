@@ -3,6 +3,7 @@ import { ethers } from "ethers";
 import Web3 from "web3";
 
 import SteakInPool from "../contract/SteakInPool.json";
+import Wallet from "./wallet";
 
 export default function Login(props) {
   const contractAddress = process.env.REACT_APP_NFT_ADDRESS;
@@ -46,16 +47,5 @@ export default function Login(props) {
     );
 
   // Display the wallet address. Truncate it to save space.
-  return (
-    <>
-      [
-      {` ${balMatic} MATIC` +
-        " | " +
-        props.address.slice(0, 5) +
-        "..." +
-        props.address.slice(38, 42) +
-        " "}
-      ]
-    </>
-  );
+  return <Wallet address={props.address} />;
 }

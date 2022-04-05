@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 // a token associated with an asset. This is fine for demonstration, but in a
 // production project you should have a unique key associated with the asset
 // and store that in the contract along with the URI.
-const NFTCard = ({ name, image, unit, minted, total, doMint }) => {
+const NFTCard = ({ name, image, color, unit, minted, total, doMint }) => {
   const [cntMint, setCntMint] = useState(0);
   const purLimit = 10;
 
@@ -23,7 +23,13 @@ const NFTCard = ({ name, image, unit, minted, total, doMint }) => {
   }, [cntMint]);
 
   return (
-    <Card style={{ width: "300px", margin: 20 }}>
+    <Card
+      style={{
+        width: "300px",
+        margin: 20,
+        background: `${color ? color : null}`,
+      }}
+    >
       <Card.Body>
         <Card.Title style={{ color: "black" }}>{name}</Card.Title>
         <Card.Img src={image}></Card.Img>

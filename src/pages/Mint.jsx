@@ -29,26 +29,31 @@ export default function Mint(props) {
   const NFT = {
     starter: {
       name: "Starter",
+      color: "dimgray",
       price: 0.01,
       total: 3800,
     },
     bronze: {
       name: "Bronze",
+      color: "bisque",
       price: 0.02,
       total: 2500,
     },
     silver: {
       name: "Silver",
+      color: "silver",
       price: 0.08,
       total: 1900,
     },
     gold: {
       name: "Gold",
+      color: "gold",
       price: 0.16,
       total: 1000,
     },
     platinum: {
       name: "Platinum",
+      color: "dodgerblue",
       price: 0.32,
       total: 800,
     },
@@ -194,6 +199,7 @@ export default function Mint(props) {
             <NFTCard
               name={NFT["starter"].name}
               unit={NFT["starter"].price}
+              color={NFT["starter"].color}
               minted={mintedCNT[0]}
               total={NFT["starter"].total}
               image={"/token_data/exobit_1.png"}
@@ -203,6 +209,7 @@ export default function Mint(props) {
             <NFTCard
               name={NFT["bronze"].name}
               unit={NFT["bronze"].price}
+              color={NFT["bronze"].color}
               minted={mintedCNT[1]}
               total={NFT["bronze"].total}
               image={"/token_data/exobit_2.png"}
@@ -212,6 +219,7 @@ export default function Mint(props) {
             <NFTCard
               name={NFT["silver"].name}
               unit={NFT["silver"].price}
+              color={NFT["silver"].color}
               minted={mintedCNT[2]}
               total={NFT["silver"].total}
               image={"/token_data/exobit_3.png"}
@@ -221,6 +229,7 @@ export default function Mint(props) {
             <NFTCard
               name={NFT["gold"].name}
               unit={NFT["gold"].price}
+              color={NFT["gold"].color}
               minted={mintedCNT[3]}
               total={NFT["gold"].total}
               image={"/token_data/exobit_4.png"}
@@ -230,6 +239,7 @@ export default function Mint(props) {
             <NFTCard
               name={NFT["platinum"].name}
               unit={NFT["platinum"].price}
+              color={NFT["platinum"].color}
               minted={mintedCNT[4]}
               total={NFT["platinum"].total}
               image={"/token_data/exobit_1.png"}

@@ -1,4 +1,4 @@
-# ![ALTCOINNFT Logo] steak-in-pool
+# ![ALTCOINNFT Logo] stake-in-pool
 
 ## ALTCOINNFT
 

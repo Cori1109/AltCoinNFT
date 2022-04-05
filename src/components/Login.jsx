@@ -1,7 +1,7 @@
 import React from "react";
 import Web3 from "web3";
 
-import SteakInPool from "../config/SteakInPool.json";
+import StakeInPool from "../config/StakeInPool.json";
 import Wallet from "./wallet";
 
 export default function Login(props) {
@@ -17,7 +17,7 @@ export default function Login(props) {
       // Use web3 to get the user's accounts.
       const accounts = await web3.eth.getAccounts();
       // Get an instance of the contract sop we can call our contract functions
-      const instance = new web3.eth.Contract(SteakInPool, contractAddress);
+      const instance = new web3.eth.Contract(StakeInPool, contractAddress);
       props.callback({ web3, accounts, contract: instance });
     } catch (error) {
       // Catch any errors for any of the above operations.

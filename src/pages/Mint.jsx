@@ -110,7 +110,7 @@ export default function Mint(props) {
     if (balMatic < sum) {
       toast.error("Payment amount is not sufficient!");
     } else if (totalCnt > purLimit - balance) {
-      toast.error("Please fix the minting counts!");
+      toast.error("Purchase would exceed max supply!");
     } else {
       let price = ethers.utils.parseEther(sum.toString());
       console.log("sum:", sum, price);

@@ -13,6 +13,7 @@ require("dotenv").config();
 // and store that in the contract along with the URI.
 export default function Mint(props) {
   const [balance, setBalance] = useState([]);
+  const [balMatic, setBalMatic] = useState([]);
   const [sum, setSum] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [purLimit, setPurLimit] = useState(10);
@@ -64,6 +65,10 @@ export default function Mint(props) {
       ContractAbi,
       provider.getSigner()
     );
+    provider.getBalance(props.address).then((balance) => {
+      const balanceInMatic = ethers.utils.formatEther(balance);
+      setBalMatic(balanceInMatic);
+    });
 
     let pauseVal = await SIPContract.MINTING_PAUSED();
     setIsPaused(pauseVal);
@@ -94,8 +99,12 @@ export default function Mint(props) {
       ContractAbi,
       provider.getSigner()
     );
+
     const totalCnt = cntStarter + cntBronze + cntSilver + cntGold + cntPlatinum;
-    if (totalCnt > purLimit - balance) {
+
+    if (balMatic < sum) {
+      toast.error("Payment amount is not sufficient!");
+    } else if (totalCnt > purLimit - balance) {
       toast.error("Please fix the minting counts!");
     } else {
       let price = ethers.utils.parseEther(sum.toString());
@@ -240,7 +249,11 @@ export default function Mint(props) {
             </Card>
           </div>
           <div style={{ marginTop: 20 }}>
-            <Button onClick={purchase}>PURCHASE</Button>
+            {sum !== 0 ? (
+              <Button onClick={purchase}>PURCHASE</Button>
+            ) : (
+              <Button disabled>PURCHASE</Button>
+            )}
           </div>
         </div>
       )}

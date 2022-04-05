@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -45,15 +46,15 @@ function App() {
             <ul>
               {contractAvailable && (
                 <>
-                  <li>
+                  {/* <li>
                     <Link to="/mint">Mint</Link>
                   </li>
-                  {/* <li>
+                  <li>
                     <Link to="/gallery">Gallery</Link>
-                  </li> */}
+                  </li>
                   <li>
                     <Link to="/mytokens">My NFTs</Link>
-                  </li>
+                  </li> */}
                 </>
               )}
               <li>
@@ -64,11 +65,33 @@ function App() {
                 ></Login>
               </li>
             </ul>
+            <Toaster
+              position="top-right"
+              toastOptions={{
+                success: {
+                  style: {
+                    background: "white",
+                    paddingLeft: 40,
+                    paddingRight: 40,
+                    fontWeight: 500,
+                  },
+                },
+                error: {
+                  style: {
+                    background: "white",
+                    color: "black",
+                    paddingLeft: 40,
+                    paddingRight: 40,
+                    fontWeight: 500,
+                  },
+                },
+              }}
+            />
           </nav>
         </header>
         <div className="content">
           <Switch>
-            <Route path="/mytokens">
+            {/* <Route path="/mytokens">
               <MyTokens
                 contract={web3props.contract}
                 address={walletAddress}
@@ -85,6 +108,16 @@ function App() {
             </Route>
             <Route path="/">
               <Home />
+            </Route> */}
+            <Route path="/">
+              {contractAvailable ? (
+                <Mint
+                  contract={web3props.contract}
+                  address={walletAddress}
+                ></Mint>
+              ) : (
+                <Home />
+              )}
             </Route>
           </Switch>
         </div>

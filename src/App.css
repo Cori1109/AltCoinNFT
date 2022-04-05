@@ -32,7 +32,8 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  display: block;
+  display: flex;
+  justify-content: space-between;
   height: var(--heightHead);
   width: 100%;
   flex: 0;
@@ -53,7 +54,7 @@ a.button {
   box-shadow: inset 1px 3px 25px 0px rgb(10 18 45 / 50%);
   font-size: inherit;
   font-weight: bold;
-  padding: 0.5em 2em;
+  padding: 0.5em 0.5em;
   border: solid 1px var(--txtColorHead);
   border-radius: 5px;
   cursor: pointer;
@@ -100,6 +101,12 @@ header nav ul li {
   float: left;
   margin-right: 20px;
   font-size: 1em;
+}
+
+.Card_box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 /*

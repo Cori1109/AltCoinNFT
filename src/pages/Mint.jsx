@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import toast, { Toast } from "react-hot-toast";
 import web3 from "web3";
-import ContractAbi from "../contract/AltcoinNFT.json";
+import ContractAbi from "../contract/SteakInPool.json";
 import { Button, Card } from "react-bootstrap";
 import NFTCard from "../components/NFTCard";
 require("dotenv").config();
@@ -12,9 +12,10 @@ require("dotenv").config();
 // production project you should have a unique key associated with the asset
 // and store that in the contract along with the URI.
 export default function Mint(props) {
-  const [assetURIs, setAssetURIs] = useState([]);
+  const [balance, setBalance] = useState([]);
   const [sum, setSum] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [purLimit, setPurLimit] = useState(10);
 
   const [cntStarter, setCntStarter] = useState(0);
   const [cntBronze, setCntBronze] = useState(0);
@@ -22,8 +23,7 @@ export default function Mint(props) {
   const [cntGold, setCntGold] = useState(0);
   const [cntPlatinum, setCntPlatinum] = useState(0);
   const MAX_ELEMENTS = 100000;
-  const LEVEL_STARTID = [0, 3800, 6300, 8200, 9200];
-  let mintedCNT = [0, 0, 0, 0, 0];
+  const [mintedCNT, setMintedCNT] = useState([]);
 
   const NFT = {
     starter: {
@@ -58,7 +58,6 @@ export default function Mint(props) {
   });
 
   const getParams = async () => {
-    console.log("getParams:!!!");
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const SIPContract = new ethers.Contract(
       process.env.REACT_APP_NFT_ADDRESS,
@@ -67,20 +66,21 @@ export default function Mint(props) {
     );
 
     let pauseVal = await SIPContract.MINTING_PAUSED();
-    console.log("Ispaused:", pauseVal);
     setIsPaused(pauseVal);
 
+    let _purLimit = web3.utils.toDecimal(await SIPContract.maxItemsPerWallet());
+    setPurLimit(_purLimit);
     let totalSupply = web3.utils.toDecimal(await SIPContract.totalSupply());
-    let claimedPerWallet = web3.utils.toDecimal(
-      await SIPContract._allowListClaimed(props.address)
+    let _balance = web3.utils.toDecimal(
+      await SIPContract.balanceOf(props.address)
     );
-    console.log("claimed Per wallet:", claimedPerWallet);
-    for (let i = 0; i < 5; i++) {
-      mintedCNT[i] =
-        web3.utils.toDecimal(await SIPContract._tokenIdTracker(i)) -
-        LEVEL_STARTID[i];
+    setBalance(_balance);
+    let _mintedCNT = await SIPContract.mintedCnt();
+    let _tmp = [];
+    for (let i = 0; i < _mintedCNT.length; i++) {
+      _tmp[i] = web3.utils.toDecimal(_mintedCNT[i]);
     }
-    console.log("Minted per Level:", mintedCNT);
+    setMintedCNT(_tmp);
 
     if (totalSupply === MAX_ELEMENTS) {
       console.log("Sold Out");
@@ -94,37 +94,43 @@ export default function Mint(props) {
       ContractAbi,
       provider.getSigner()
     );
-    let price = ethers.utils.parseEther(sum.toString());
+    const totalCnt = cntStarter + cntBronze + cntSilver + cntGold + cntPlatinum;
+    if (totalCnt > purLimit - balance) {
+      toast.error("Please fix the minting counts!");
+    } else {
+      let price = ethers.utils.parseEther(sum.toString());
+      console.log("sum:", sum, price);
 
-    try {
-      await SIPContract.mint(
-        [cntStarter, cntBronze, cntSilver, cntGold, cntPlatinum],
-        { value: price }
-      )
-        .then((tx) => {
-          return tx.wait().then(
-            (receipt) => {
-              // This is entered if the transaction receipt indicates success
-              console.log("receipt", receipt);
-              toast.success("Mint Success!");
-              return true;
-            },
-            (error) => {
-              console.log("error", error);
-              toast.error("Mint Fail!");
+      try {
+        await SIPContract.mint(
+          [cntStarter, cntBronze, cntSilver, cntGold, cntPlatinum],
+          { value: price }
+        )
+          .then((tx) => {
+            return tx.wait().then(
+              (receipt) => {
+                // This is entered if the transaction receipt indicates success
+                console.log("receipt", receipt);
+                toast.success("Mint Success!");
+                return true;
+              },
+              (error) => {
+                console.log("error", error);
+                toast.error("Mint Fail!");
+              }
+            );
+          })
+          .catch((error) => {
+            console.log(error);
+            if (error.message.indexOf("signature")) {
+              toast.error("You canceled transaction!");
+            } else {
+              toast.error("Transaction Error!");
             }
-          );
-        })
-        .catch((error) => {
-          console.log(error);
-          if (error.message.indexOf("signature")) {
-            toast.error("You canceled transaction!");
-          } else {
-            toast.error("Transaction Error!");
-          }
-        });
-    } catch (error) {
-      console.log("Minting error", error);
+          });
+      } catch (error) {
+        console.log("Minting error", error);
+      }
     }
   };
 
@@ -175,7 +181,7 @@ export default function Mint(props) {
         </div>
       ) : (
         <div>
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div className="Card_box">
             <NFTCard
               name={NFT["starter"].name}
               unit={NFT["starter"].price}
@@ -227,7 +233,9 @@ export default function Mint(props) {
             <Card style={{ width: "18rem" }}>
               <Card.Body>
                 <Card.Title style={{ color: "black" }}>Total : </Card.Title>
-                <Card.Text style={{ color: "black" }}>{sum} MATIC</Card.Text>
+                <Card.Text style={{ color: "black" }}>
+                  {parseFloat(parseInt(sum * 100) / 100)} MATIC
+                </Card.Text>
               </Card.Body>
             </Card>
           </div>

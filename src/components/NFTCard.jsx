@@ -23,7 +23,7 @@ const NFTCard = ({ name, image, unit, minted, total, doMint }) => {
   }, [cntMint]);
 
   return (
-    <Card style={{ width: "300px", marginRight: 20 }}>
+    <Card style={{ width: "300px", margin: 20 }}>
       <Card.Body>
         <Card.Title style={{ color: "black" }}>{name}</Card.Title>
         <Card.Img src={image}></Card.Img>

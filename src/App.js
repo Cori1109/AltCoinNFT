@@ -46,13 +46,13 @@ function App() {
             <ul>
               {contractAvailable && (
                 <>
-                  {/* <li>
+                  <li>
+                    <Link to="/">Home</Link>
+                  </li>
+                  <li>
                     <Link to="/mint">Mint</Link>
                   </li>
-                  <li>
-                    <Link to="/gallery">Gallery</Link>
-                  </li>
-                  <li>
+                  {/* <li>
                     <Link to="/mytokens">My NFTs</Link>
                   </li> */}
                 </>
@@ -99,7 +99,7 @@ function App() {
             </Route>
             <Route path="/gallery">
               <Gallery contract={web3props.contract}></Gallery>
-            </Route>
+            </Route> */}
             <Route path="/mint">
               <Mint
                 contract={web3props.contract}
@@ -108,16 +108,6 @@ function App() {
             </Route>
             <Route path="/">
               <Home />
-            </Route> */}
-            <Route path="/">
-              {contractAvailable ? (
-                <Mint
-                  contract={web3props.contract}
-                  address={walletAddress}
-                ></Mint>
-              ) : (
-                <Home />
-              )}
             </Route>
           </Switch>
         </div>

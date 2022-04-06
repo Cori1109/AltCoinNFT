@@ -7,6 +7,11 @@ import Roadmap from "../components/Roadmap";
 import Team from "../components/Team";
 import BackTop from "../components/backtotop";
 import Logos from "../components/Logos";
+import TopContent from "../components/TopContent";
+import CenterContent from "../components/CenterContent";
+import BottomContent from "../components/BottomContent";
+import Testimonials from "../components/Testimonials";
+import HowToBuy from "../components/HowToBuy";
 
 export default function Home() {
   return (
@@ -14,11 +19,15 @@ export default function Home() {
       {/* <Dashboard /> */}
       <Banner />
       <Logos />
-      <Feature />
+      <TopContent />
+      <CenterContent />
+      <BottomContent />
+      <Testimonials />
+      <HowToBuy />
       <Roadmap />
-      <Team />
+      {/* <Team /> */}
       <BackTop />
-      <Faq />
+      {/* <Faq /> */}
     </div>
   );
 }

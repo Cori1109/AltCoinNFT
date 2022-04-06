@@ -3,11 +3,11 @@ import { Row, Col, Container, Button, Image, Card } from "react-bootstrap";
 
 export default function Banner() {
   return (
-    <div id="banner" className="banner-container mb-5">
-      <Container className="pb-5">
+    <div id="banner" className="banner-container mt-5" style={{marginBottom: -35}}>
+      <Container className="p-3 pb-5">
         <div className="banner-left">
-          <Row>
-            <Col lg={7} md={12}>
+          <Row style={{justifyContent: "space-between"}}>
+            <Col lg={5} md={12}>
               <Row>
                 <Card>
                   <Card.Title>

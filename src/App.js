@@ -106,7 +106,7 @@ function App() {
             <Route path="/gallery">
               <Gallery contract={web3props.contract}></Gallery>
             </Route> */}
-            <Route path="/mint">
+            <Route path="/app">
               <Mint
                 contract={web3props.contract}
                 address={walletAddress}

@@ -38,7 +38,7 @@ export default function About() {
                   className="mb-0 text-orange font-xxl"
                   style={{ fontWeight: "bold" }}
                 >
-                  Steak In Pool
+                  Stake In Pool
                 </p>
                 <p className="mt-4 mb-0 font-lgr aboutTxt">
                   The <b className="text-orange">first SIP NFT</b> collection

@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-// @title:      Steak In Pool
-// @twitter:    https://twitter.com/SteakInPool
-// @url:        https://www.steakinpool.com/
+// @title:      Stake In Pool
+// @twitter:    https://twitter.com/StakeInPool
+// @url:        https://www.stakeinpool.com/
 
 /*
- *  ▄▀▀▀ ▀▀█▀▀ █▀▀▀ ▄▀▀▄ █  ▄▀   ▀█▀ █▄  █   █▀▀▄ ▄▀▀▄ ▄▀▀▄  █   
- *  ▀▄▄    █   █▄▄▄ █▄▄█ █▄▀      █  █ █ █   █▄▄▀ █  █ █  █  █
- *     █   █   █    █  █ █ ▀▄     █  █ ▀▄█   █    █  █ █  █  █    
- *  ▀▀▀    ▀   ▀▀▀▀ ▀  ▀ ▀   ▀   ▀▀▀ ▀   ▀   ▀     ▀▀   ▀▀   ▀▀▀▀
+ *  ▄▀▀▀ ▀▀█▀▀ ▄▀▀▄ █  ▄▀ █▀▀▀   ▀█▀ █▄  █   █▀▀▄ ▄▀▀▄ ▄▀▀▄  █   
+ *  ▀▄▄    █   █▄▄█ █▄▀   █▄▄▄    █  █ █ █   █▄▄▀ █  █ █  █  █
+ *     █   █   █  █ █ ▀▄  █       █  █ ▀▄█   █    █  █ █  █  █    
+ *  ▀▀▀    ▀   ▀  ▀ ▀   ▀ ▀▀▀▀   ▀▀▀ ▀   ▀   ▀     ▀▀   ▀▀   ▀▀▀▀
  */
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
@@ -18,7 +18,7 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 // deploy on the Polygon Network
-contract SteakInPool is ERC721Enumerable, Ownable, ReentrancyGuard {
+contract StakeInPool is ERC721Enumerable, Ownable, ReentrancyGuard {
     using SafeMath for uint256;
 
     // constants
@@ -35,7 +35,7 @@ contract SteakInPool is ERC721Enumerable, Ownable, ReentrancyGuard {
     
     mapping(uint256 => address) private claimedList;
 
-    constructor() ERC721("Steak In Pool", "SIP"){
+    constructor() ERC721("Stake In Pool", "SIP"){
     }
 
     // ===== Modifier =====

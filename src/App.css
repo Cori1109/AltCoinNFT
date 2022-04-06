@@ -511,10 +511,16 @@ div.App div.launch-board div.clock-listgroupitem p.unit {
   opacity: 1;
 }
 
+div.App div#roadmap {
+  background-color: #fff;
+  color: #000;
+  padding: 5px;
+}
+
 div.App div#roadmap .white-divider {
   display: block;
   height: 2px;
-  background: white;
+  background: #f7941d;
   width: 15rem;
   margin: 20px auto;
 }
@@ -740,7 +746,7 @@ img.posImage {
   stroke-width: 1px;
 }
 #roadmap .CircularProgressbar .CircularProgressbar-path {
-  stroke: #fff;
+  stroke: #f7941d;
   stroke-linecap: square;
 }
 #roadmap .CircularProgressbar .CircularProgressbar-text {

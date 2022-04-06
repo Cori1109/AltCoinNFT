@@ -32,7 +32,7 @@ export default function RoadmapStep(props) {
       <div className="roadmap-text">
         <div style={{ display: "flex" }}>
           <h4
-            className="text-white font-xl"
+            className="text-darkGray font-xl"
             style={{ textTransform: "uppercase" }}
           >
             {title}&nbsp;
@@ -41,7 +41,7 @@ export default function RoadmapStep(props) {
         </div>
         <span className="left-align-divider"></span>
         <p
-          className="text-white font-lg"
+          className="text-darkGray font-lg"
           dangerouslySetInnerHTML={{ __html: detail }}
         ></p>
       </div>

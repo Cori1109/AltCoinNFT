@@ -117,6 +117,57 @@ function App() {
             </Route>
           </Switch>
         </div>
+        <footer>
+          <ul style={{display: "flex", margin: "unset", alignItems: "center", listStyleType: "none"}}>
+            <li>
+              <Link to="/#">
+                <a style={{fontSize: 14}}>COPYRIGHT</a>
+              </Link>
+            </li>
+            <span style={{marginLeft: 10, marginRight: 10}}>|</span>
+            <li>
+              <Link to="/#">
+                <a style={{fontSize: 14}}>CONTACT US</a>
+              </Link>
+            </li>
+            <span style={{marginLeft: 10, marginRight: 10}}>|</span>
+            <li>
+              <Link to="/#">
+                <a style={{fontSize: 14}}>PRIVACY POLICY</a>
+              </Link>
+            </li>
+            <span style={{marginLeft: 10, marginRight: 10}}>|</span>
+            <li>
+              <Link to="/#">
+                <a style={{fontSize: 14}}>EARNINGS DISCLAIMER</a>
+              </Link>
+            </li>
+          </ul>
+          <nav style={{ marginTop: "12px" }}>
+            <ul>
+              <li>
+                <Link to="/app">
+                  <button className="navBtn">Youtube</button>
+                </Link>
+              </li>
+              <li>
+                <Link to="/marketplace">
+                  <button className="navBtn">Twitter</button>
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog">
+                  <button className="navBtn">Discord</button>
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog">
+                  <button className="navBtn">WhitePaper</button>
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </footer>
       </Router>
     </div>
   );

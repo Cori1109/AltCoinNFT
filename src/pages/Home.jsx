@@ -12,6 +12,7 @@ import CenterContent from "../components/CenterContent";
 import BottomContent from "../components/BottomContent";
 import Testimonials from "../components/Testimonials";
 import HowToBuy from "../components/HowToBuy";
+import FooterContent from "../components/FooterContent";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       {/* <Team /> */}
       <BackTop />
       {/* <Faq /> */}
+      <FooterContent />
     </div>
   );
 }

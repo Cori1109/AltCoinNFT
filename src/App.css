@@ -41,6 +41,17 @@ header {
   flex: 0;
 }
 
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  height: var(--heightHead);
+  width: 100%;
+  flex: 0;
+}
+
 .content {
   flex: 1;
   margin-top: var(--heightHead);
@@ -74,6 +85,14 @@ header {
   z-index: 100;
 }
 
+footer {
+  background-color: var(--navbgColor);
+  color: var(--txtColorHead);
+  box-shadow: inset 1px 3px 25px 0px rgba(10, 18, 45, 0.5),
+    1px 1px 25px 0px #000;
+  z-index: 100;
+}
+
 header #logo {
   margin: 0;
   float: left;
@@ -100,6 +119,37 @@ header nav ul {
 }
 
 header nav ul li {
+  float: left;
+  margin-right: 20px;
+  font-size: 1em;
+}
+
+footer #logo {
+  margin: 0;
+  float: left;
+  font-size: 2em;
+  margin: 10px 1em;
+  height: 30px;
+  color: var(--txtColorHead);
+}
+
+footer a {
+  color: var(--txtColorHead);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer nav {
+  margin: 0;
+  float: right;
+}
+
+footer nav ul {
+  list-style: none;
+  float: right;
+}
+
+footer nav ul li {
   float: left;
   margin-right: 20px;
   font-size: 1em;

@@ -26,7 +26,8 @@ const NFTCard = ({ name, image, color, unit, minted, total, doMint }) => {
     <Card
       style={{
         width: "300px",
-        margin: 20,
+        borderRadius: "5%",
+        margin: 10,
         background: `${color ? color : null}`,
       }}
     >

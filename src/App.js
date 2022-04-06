@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import { Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -95,17 +96,8 @@ function App() {
             />
           </nav>
         </header>
-        <div className="content">
+        <div className="content" style={{ backgroundImage: "url(3D.png)" }}>
           <Switch>
-            {/* <Route path="/mytokens">
-              <MyTokens
-                contract={web3props.contract}
-                address={walletAddress}
-              ></MyTokens>
-            </Route>
-            <Route path="/gallery">
-              <Gallery contract={web3props.contract}></Gallery>
-            </Route> */}
             <Route path="/app">
               <Mint
                 contract={web3props.contract}
@@ -118,51 +110,74 @@ function App() {
           </Switch>
         </div>
         <footer>
-          <ul style={{display: "flex", margin: "unset", alignItems: "center", listStyleType: "none"}}>
+          <ul
+            style={{
+              display: "flex",
+              margin: "unset",
+              alignItems: "center",
+              listStyleType: "none",
+            }}
+          >
             <li>
               <Link to="/#">
-                <a style={{fontSize: 14}}>COPYRIGHT</a>
+                <a style={{ fontSize: 14 }}>COPYRIGHT</a>
               </Link>
             </li>
-            <span style={{marginLeft: 10, marginRight: 10}}>|</span>
+            <span style={{ marginLeft: 10, marginRight: 10 }}>|</span>
             <li>
               <Link to="/#">
-                <a style={{fontSize: 14}}>CONTACT US</a>
+                <a style={{ fontSize: 14 }}>CONTACT US</a>
               </Link>
             </li>
-            <span style={{marginLeft: 10, marginRight: 10}}>|</span>
+            <span style={{ marginLeft: 10, marginRight: 10 }}>|</span>
             <li>
               <Link to="/#">
-                <a style={{fontSize: 14}}>PRIVACY POLICY</a>
+                <a style={{ fontSize: 14 }}>PRIVACY POLICY</a>
               </Link>
             </li>
-            <span style={{marginLeft: 10, marginRight: 10}}>|</span>
+            <span style={{ marginLeft: 10, marginRight: 10 }}>|</span>
             <li>
               <Link to="/#">
-                <a style={{fontSize: 14}}>EARNINGS DISCLAIMER</a>
+                <a style={{ fontSize: 14 }}>EARNINGS DISCLAIMER</a>
               </Link>
             </li>
           </ul>
-          <nav style={{ marginTop: "12px" }}>
+          <nav style={{ marginTop: "5px" }}>
             <ul>
               <li>
-                <Link to="/app">
-                  <button className="navBtn">Youtube</button>
+                <Link to="/yutube">
+                  <Image
+                    className="socialBtn yutube"
+                    src="yutube.png"
+                    height={40}
+                  />
                 </Link>
               </li>
               <li>
-                <Link to="/marketplace">
-                  <button className="navBtn">Twitter</button>
+                <Link to="/twitter">
+                  <Image
+                    className="socialBtn twitter"
+                    src="twitter.png"
+                    height={40}
+                  />
                 </Link>
               </li>
               <li>
-                <Link to="/blog">
-                  <button className="navBtn">Discord</button>
+                <Link to="/discord">
+                  <Image
+                    className="socialBtn discord"
+                    src="discord.png"
+                    height={40}
+                  />
                 </Link>
               </li>
               <li>
-                <Link to="/blog">
-                  <button className="navBtn">WhitePaper</button>
+                <Link to="/whitepaper">
+                  <Image
+                    className="socialBtn whitepaper"
+                    src="whitepaper.png"
+                    height={40}
+                  />
                 </Link>
               </li>
             </ul>

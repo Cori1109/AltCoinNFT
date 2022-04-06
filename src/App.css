@@ -54,8 +54,8 @@ footer {
 
 .content {
   flex: 1;
-  margin-top: var(--heightHead);
-  padding: 2em;
+  padding: 4em;
+  background-attachment: fixed;
   /* overflow-x: hidden;
 	overflow-y: visible; */
 }
@@ -153,6 +153,28 @@ footer nav ul li {
   float: left;
   margin-right: 20px;
   font-size: 1em;
+}
+
+footer nav ul .socialBtn {
+  margin-top: auto;
+  background-color: gray;
+  border-radius: 50%;
+}
+
+.yutube:hover {
+  background-color: #d50000;
+}
+
+.twitter:hover {
+  background-color: #029eec;
+}
+
+.discord:hover {
+  background-color: #5661ea;
+}
+
+.whitepaper:hover {
+  background-color: #2b90d6;
 }
 
 .Card_box {
@@ -1575,6 +1597,10 @@ input.counter {
   width: 100%;
   height: 100%;
   position: relative;
+  opacity: 30%;
+}
+.scroll-to-top img:hover {
+  opacity: 100%;
 }
 
 @media only screen and (max-width: 767px) {

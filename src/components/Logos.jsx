@@ -3,30 +3,62 @@ import { Card, Col, Image, Row } from "react-bootstrap";
 
 export default function Logos() {
   return (
-    <div style={{display: "flex", justifyContent: "center"}}>
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <Card id="logos" className="p-3">
-        <Row>
-          <Col md={2} style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-            <Image src="logo-symbol.png" alt="Logos" width={100}></Image>
-          </Col>
-          <Col md={2} style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+        <Row style={{ justifyContent: "center" }}>
+          <Col
+            md={2}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <Image
               src="cointelegraph.png"
               alt="Coin Telegraph"
               width={100}
             ></Image>
           </Col>
-          <Col md={2} style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-            <Image src="forbes2.png" alt="Forbes" width={100}></Image>
+          <Col
+            md={2}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Image src="forbes.png" alt="Forbes" width={100}></Image>
           </Col>
-          <Col md={2} style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+          <Col
+            md={2}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <Image src="yahoo.png" alt="Yahoo" width={100}></Image>
           </Col>
-          <Col md={2} style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-            <Image src="" alt="CNN"></Image>
+          <Col
+            md={2}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Image src="cnn.png" alt="CNN" width={100}></Image>
           </Col>
-          <Col md={2} style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-            <Image src="" alt="NFTMiami"></Image>
+          <Col
+            md={2}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Image src="miaminft.png" alt="NFTMiami" width={100}></Image>
           </Col>
         </Row>
       </Card>

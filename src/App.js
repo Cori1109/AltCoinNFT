@@ -40,21 +40,27 @@ function App() {
       <Router>
         <header>
           <Link to="/">
-            <img src="Logo.svg" id="logo" className="greenzeta" />
+            <img src="logo-11.png" id="logo" className="greenzeta" />
           </Link>
           <nav style={{ marginTop: "12px" }}>
             <ul>
               {contractAvailable && (
                 <>
                   <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/app">
+                      <button className="navBtn">App</button>
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/mint">Mint</Link>
+                    <Link to="/marketplace">
+                      <button className="navBtn">Marketplace</button>
+                    </Link>
                   </li>
-                  {/* <li>
-                    <Link to="/mytokens">My NFTs</Link>
-                  </li> */}
+                  <li>
+                    <Link to="/blog">
+                      <button className="navBtn">Blog</button>
+                    </Link>
+                  </li>
                 </>
               )}
               <li>

@@ -1,17 +1,19 @@
 import React from "react";
-import About from "../components/About";
+import Banner from "../components/Banner";
 import Dashboard from "../components/Dashboard";
 import Faq from "../components/Faq";
 import Feature from "../components/Feature";
 import Roadmap from "../components/Roadmap";
 import Team from "../components/Team";
 import BackTop from "../components/backtotop";
+import Logos from "../components/Logos";
 
 export default function Home() {
   return (
     <div className="page home">
-      <Dashboard />
-      <About />
+      {/* <Dashboard /> */}
+      <Banner />
+      <Logos />
       <Feature />
       <Roadmap />
       <Team />

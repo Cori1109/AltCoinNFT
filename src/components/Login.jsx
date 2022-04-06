@@ -34,5 +34,6 @@ export default function Login(props) {
     );
 
   // Display the wallet address. Truncate it to save space.
-  return <Wallet address={props.address} />;
+  // return <Wallet address={props.address} />;
+  return <></>;
 }

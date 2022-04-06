@@ -1,10 +1,12 @@
 html,
 body,
 #root {
-  --bkgColor: #1b1b1f;
+  --bkgColor: #e5e5e5;
+  --navbgColor: #3c5a9c;
   --txtColor: #eee;
   --bkgColorHead: #2f2e38;
   --txtColorHead: #eee;
+  --navBtnColor: #ffaa00;
   --bkgColorCallout: #e3e3e8;
   --heightHead: 50px;
 
@@ -49,13 +51,13 @@ header {
 
 button,
 a.button {
-  background-color: var(--txtColorHead);
+  background-color: var(--navBtnColor);
   color: var(--bkgColorHead);
   box-shadow: inset 1px 3px 25px 0px rgb(10 18 45 / 50%);
   font-size: inherit;
   font-weight: bold;
   padding: 0.5em 0.5em;
-  border: solid 1px var(--txtColorHead);
+  /* border: solid 1px var(--txtColorHead); */
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
@@ -65,7 +67,7 @@ a.button {
 		HEADER
 */
 header {
-  background-color: var(--bkgColorHead);
+  background-color: var(--navbgColor);
   color: var(--txtColorHead);
   box-shadow: inset 1px 3px 25px 0px rgba(10, 18, 45, 0.5),
     1px 1px 25px 0px #000;
@@ -117,6 +119,14 @@ button.login {
   margin-top: -16px;
 }
 
+button.navBtn {
+  padding: 5px;
+  color: var(--navbgColor);
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: -16px;
+}
+
 iframe {
   visibility: hidden;
 }
@@ -125,7 +135,33 @@ iframe {
 
 .App {
   text-align: center;
-  background-color: #000;
+  background-color: var(--bkgColor);
+}
+
+#banner {
+  background-color: #fff;
+  color: #000;
+}
+
+#banner .row {
+  margin: 15px auto;
+}
+
+#banner .card {
+  background-color: var(--bkgColor);
+}
+
+.banner-left li {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.banner-left li img {
+  margin-right: 10px;
+}
+
+#logos {
+  color: #000;
 }
 
 .full-width {
@@ -296,6 +332,10 @@ div.App div.launch-board div.clock-listgroupitem p.unit {
 
 .textAlignLeft {
   text-align: left;
+}
+
+#about {
+  background-color: var(--bkgColor);
 }
 
 .about-container img {

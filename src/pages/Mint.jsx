@@ -6,6 +6,7 @@ import web3 from "web3";
 import ContractAbi from "../config/StakeInPool.json";
 import { Button, Card } from "react-bootstrap";
 import NFTCard from "../components/NFTCard";
+import Login from "../components/Login";
 require("dotenv").config();
 
 // IMPORTANT NOTE: In this example, the URI is used as a unique key to identify
@@ -26,7 +27,28 @@ export default function Mint(props) {
   const [cntPlatinum, setCntPlatinum] = useState(0);
   const MAX_ELEMENTS = 100000;
   const [mintedCNT, setMintedCNT] = useState([0, 0, 0, 0, 0]);
+  const [web3props, setWeb3Props] = useState({
+    web3: null,
+    accounts: null,
+    contract: null,
+  });
 
+  // Callback function for the Login component to give us access to the web3 instance and contract functions
+  const OnLogin = function (param) {
+    let { web3, accounts, contract } = param;
+    if (web3 && accounts && accounts.length && contract) {
+      setWeb3Props({ web3, accounts, contract });
+    }
+  };
+
+  // If the wallet is connected, all three values will be set. Use to display the main nav below.
+  const contractAvailable = !(
+    !web3props.web3 &&
+    !web3props.accounts &&
+    !web3props.contract
+  );
+  // Grab the connected wallet address, if available, to pass into the Login component
+  const walletAddress = web3props.accounts ? web3props.accounts[0] : "";
   const NFT = {
     starter: {
       name: "Starter",
@@ -71,7 +93,7 @@ export default function Mint(props) {
       ContractAbi,
       provider.getSigner()
     );
-    provider.getBalance(props.address).then((balance) => {
+    provider.getBalance(walletAddress).then((balance) => {
       const balanceInMatic = ethers.utils.formatEther(balance);
       setBalMatic(balanceInMatic);
     });
@@ -83,7 +105,7 @@ export default function Mint(props) {
     setPurLimit(_purLimit);
     let totalSupply = web3.utils.toDecimal(await SIPContract.totalSupply());
     let _balance = web3.utils.toDecimal(
-      await SIPContract.balanceOf(props.address)
+      await SIPContract.balanceOf(walletAddress)
     );
     setBalance(_balance);
     let _mintedCNT = await SIPContract.mintedCnt();
@@ -195,6 +217,13 @@ export default function Mint(props) {
           <Navbar.Brand href="/">
             <img src="logo.png" id="logo" alt="logo" />
           </Navbar.Brand>
+          <Nav>
+            <Login
+              callback={OnLogin}
+              connected={contractAvailable}
+              address={walletAddress}
+            />
+          </Nav>
           <Toaster
             position="top-right"
             toastOptions={{
@@ -288,7 +317,7 @@ export default function Mint(props) {
               </Card.Body>
             </Card>
           </div>
-          <div style={{ marginTop: 20 }}>
+          <div style={{ marginTop: 20, marginBottom: 100 }}>
             {sum !== 0 ? (
               <Button onClick={purchase}>PURCHASE</Button>
             ) : (

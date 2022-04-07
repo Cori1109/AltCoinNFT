@@ -19,23 +19,33 @@ export default function FooterContent() {
             className="p-4"
             style={{ display: "flex", alignItems: "center" }}
           >
-            <Row>
+            <Row style={{height: "100%"}}>
               <Card>
                 <div>
                   <Form>
-                    <Row>
+                    <Row style={{justifyContent: "center"}}>
                       <Image src="3D-Logo.png"></Image>
                     </Row>
                     <Row>
                       <Col>
                         <Form.Control
-                          type="email"
-                          placeholder="Enter your email"
+                          type="name"
+                          placeholder="Enter your name here..."
                         />
                       </Col>
+                    </Row>
+                    <Row>
                       <Col>
-                        <Button variant="primary" type="submit">
-                          Subscribe
+                        <Form.Control
+                          type="email"
+                          placeholder="Enter your email address here..."
+                        />
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Button variant="primary" type="submit" style={{width: "100%"}}>
+                          SUBSCRIBE NOW
                         </Button>
                       </Col>
                     </Row>
@@ -45,7 +55,7 @@ export default function FooterContent() {
             </Row>
           </Col>
           <Col lg={5} className="p-4 footerContent">
-            <Row>
+            <Row style={{height: "100%", marginTop: "unset"}}>
               <Card style={{ paddingTop: "2rem" }}>
                 <h5>Be the first to know!</h5>
                 <p>Get alerts for:</p>

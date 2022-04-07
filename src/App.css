@@ -1,7 +1,9 @@
 html,
 body,
 #root {
-  --bkgColor: #e5e5e5;
+  --bkgColor: #587ccb;
+  /* --bkgColor: #e5e5e5; */
+  --bgColor: #1c1c19d9;
   --navbgColor: #3c5a9c;
   --txtColor: #eee;
   --bkgColorHead: #2f2e38;
@@ -166,7 +168,7 @@ footer nav ul .socialBtn {
 }
 
 .facebook:hover {
-  background-color: #4267B2;
+  background-color: #329585;
 }
 
 .whitepaper:hover {
@@ -207,7 +209,7 @@ iframe {
 }
 
 #banner {
-  background-color: #fff;
+  background-color: var(--bgColor);
   color: #000;
 }
 
@@ -374,11 +376,99 @@ iframe {
   border-radius: 6px;
 }
 
+.bottomContent {
+  height: 700px;
+  background-repeat: no-repeat;
+  font-weight: 700;
+  background-size: 100% 100%;
+}
+
+.bottomCard {
+  margin-top: 3rem;
+  width: 50%;
+  border-radius: 20%;
+  padding: 2rem;
+  background-color: transparent !important;
+  border: none;
+  color: #fff;
+}
+
+.howitworks-avax {
+  cursor: pointer;
+  position: absolute;
+  right: 130px;
+  top: 0;
+  display: -moz-box;
+  display: flex;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  flex-direction: column;
+  -moz-box-align: center;
+  align-items: center;
+}
+
+.howitworks-matic {
+  cursor: pointer;
+  position: absolute;
+  left: 300px;
+  top: 0px;
+  display: -moz-box;
+  display: flex;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  flex-direction: column;
+  -moz-box-align: center;
+  align-items: center;
+}
+
+.howitworks-ftm {
+  cursor: pointer;
+  position: absolute;
+  left: 50px;
+  top: 100px;
+  display: -moz-box;
+  display: flex;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  flex-direction: column;
+  -moz-box-align: center;
+  align-items: center;
+}
+
+.howitworks-nu {
+  cursor: pointer;
+  position: absolute;
+  right: 100px;
+  top: 380px;
+  display: -moz-box;
+  display: flex;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  flex-direction: column;
+  -moz-box-align: center;
+  align-items: center;
+}
+
+.howitworks-sol {
+  cursor: pointer;
+  position: absolute;
+  left: 250px;
+  top: 420px;
+  display: -moz-box;
+  display: flex;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  flex-direction: column;
+  -moz-box-align: center;
+  align-items: center;
+}
+
 .footerContent ul {
   margin-bottom: 3.5rem;
 }
 
 #logos {
+  background-color: var(--bkgColor);
   color: #000;
   width: 80%;
 }
@@ -725,7 +815,7 @@ div.App div.launch-board div.clock-listgroupitem p.unit {
 }
 
 div.App div#roadmap {
-  background-color: #fff;
+  background-color: var(--bgColor);
   color: #000;
   padding: 5px;
 }

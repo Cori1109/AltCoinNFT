@@ -17,7 +17,9 @@ export default function HowToBuy() {
               </div>
             </Col>
             <Col lg={6} md={12}>
-              <Row style={{ paddingTop: "2rem" }}>
+              <Row
+                style={{ paddingTop: "2rem", color: "#fff", fontWeight: 700 }}
+              >
                 <h5>HOW TO BUY</h5>
                 <p></p>
                 <ul className="textAlignLeft">

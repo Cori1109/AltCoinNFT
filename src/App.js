@@ -89,7 +89,10 @@ function App() {
             />
           </Container>
         </Navbar>
-        <div className="content" style={{ backgroundImage: "url(3D.png)" }}>
+        <div
+          className="content"
+          style={{ backgroundImage: "url(3D.png)", backgroundColor: "#20313c" }}
+        >
           <Switch>
             <Route path="/app">{/* <Mint /> */}</Route>
             <Route path="/whitepaper"></Route>
@@ -133,9 +136,12 @@ function App() {
             </li>
           </ul>
           <nav>
-            <ul style={{margin: "unset"}}>
+            <ul style={{ margin: "unset" }}>
               <li>
-                <a href="https://www.youtube.com/channel/UCF6X5vqYNDyP5bIOa43d1dw" target={"_blank"}>
+                <a
+                  href="https://www.youtube.com/channel/UCF6X5vqYNDyP5bIOa43d1dw"
+                  target={"_blank"}
+                >
                   <Image
                     className="socialBtn yutube"
                     src="yutube.png"
@@ -162,7 +168,10 @@ function App() {
                 </a>
               </li>
               <li>
-                <a href="https://www.facebook.com/altcoinstaking" target={"_blank"}>
+                <a
+                  href="https://www.facebook.com/altcoinstaking"
+                  target={"_blank"}
+                >
                   <Image
                     className="socialBtn facebook"
                     src="facebook.png"

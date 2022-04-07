@@ -9,54 +9,70 @@ export default function TopContent() {
       style={{ marginTop: -35 }}
     >
       <Container className="p-3 pt-5">
-        <div className="banner-left">
-          <Row style={{ justifyContent: "center", display: "flex" }}>
-            <Col lg={10} md={12}>
-              <Row>
-                <Card className="topContent">
-                  <h5>
-                    <a href="https://altcoinstaking.io">AltcoinStaking.IO</a>{" "}
-                    brings you fully decentralized solutions for earning income
-                    across the best altcoins.
-                  </h5>
-                  <p>Some of the reasons HODL'rs love us include:</p>
-                  <ul className="textAlignLeft">
-                    <li>
-                      {" "}
-                      <img src="images/checkmark.png" width="20px" />
-                      Safe passive income
-                    </li>
-                    <li>
-                      {" "}
-                      <img src="images/checkmark.png" width="20px" />
-                      Fully sustainable from day 1
-                    </li>
-                    <li>
-                      {" "}
-                      <img src="images/checkmark.png" width="20px" />
-                      Built in compound reward systems
-                    </li>
-                    <li>
-                      {" "}
-                      <img src="images/checkmark.png" width="20px" />
-                      Ever increasing underlying treasury value
-                    </li>
-                    <li>
-                      {" "}
-                      <img src="images/checkmark.png" width="20px" />
-                      Trustless system (team cannot access staking pools)
-                    </li>
-                    <li>
-                      {" "}
-                      <img src="images/checkmark.png" width="20px" />
-                      Fast & easy diversification across top altcoins
-                    </li>
-                  </ul>
-                </Card>
-              </Row>
-            </Col>
-          </Row>
-        </div>
+        <Row style={{ justifyContent: "center", display: "flex" }}>
+          <Col md={4} sm={12}>
+            <div class="service-one__single">
+              <span class="service-one__dot-1"></span>
+              <span class="service-one__dot-2"></span>
+              <span class="service-one__dot-3"></span>
+              <div class="service-one__icon">
+                <img src="images/laptop.png" className="lums-icon-laptop" />
+              </div>
+              <h3 class="service-one__title">
+                <a href="#">
+                  Duck Holder <br /> Rewards
+                </a>
+              </h3>
+              <p class="service-one__text">
+                Win prizes, whitelist spots
+                <br /> and more <br /> each and every week.
+              </p>
+            </div>
+          </Col>
+          <Col md={4} sm={12}>
+            <div class="service-one__single">
+              <span class="service-one__dot-1"></span>
+              <span class="service-one__dot-2"></span>
+              <span class="service-one__dot-3"></span>
+              <div class="service-one__icon">
+                <img
+                  src="images/presentation.png"
+                  className="lums-icon-presentation"
+                />
+              </div>
+              <h3 class="service-one__title">
+                <a href="#">
+                  DAO <br /> Voting
+                </a>
+              </h3>
+              <p class="service-one__text">
+                Take part in our DAO
+                <br /> by submitting ideas & voting for <br /> or against
+                others. week.
+              </p>
+            </div>
+          </Col>
+          <Col md={4} sm={12}>
+            <div class="service-one__single">
+              <span class="service-one__dot-1"></span>
+              <span class="service-one__dot-2"></span>
+              <span class="service-one__dot-3"></span>
+              <div class="service-one__icon">
+                <img src="images/target.png" className="lums-icon-target" />
+              </div>
+              <h3 class="service-one__title">
+                <a href="#">
+                  Ultimate <br /> Bragging Rights
+                </a>
+              </h3>
+              <p class="service-one__text">
+                There will only ever be 10,000 ducks.
+                <br /> If you get one you deserve to <br /> show it to the
+                world.
+              </p>
+            </div>
+          </Col>
+        </Row>
       </Container>
     </div>
   );

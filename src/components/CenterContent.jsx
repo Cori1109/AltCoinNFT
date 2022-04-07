@@ -7,51 +7,6 @@ export default function CenterContent() {
       <Container className="p-3">
         <div className="banner-left">
           <Row style={{ justifyContent: "space-between" }}>
-            <Col
-              lg={5}
-              className="p-4"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-              }}
-            >
-              <div className="text-white">
-                <Image
-                  src="coin_img/avax.png"
-                  style={{ width: 64 }}
-                  roundedCircle
-                />
-              </div>
-              <div className="text-white">
-                <Image
-                  src="coin_img/sol.png"
-                  style={{ width: 64 }}
-                  roundedCircle
-                />
-              </div>
-              <div className="text-white">
-                <Image
-                  src="coin_img/ftm.png"
-                  style={{ width: 64 }}
-                  roundedCircle
-                />
-              </div>
-              <div className="text-white">
-                <Image
-                  src="coin_img/matic.png"
-                  style={{ width: 64 }}
-                  roundedCircle
-                />
-              </div>
-              <div className="text-white">
-                <Image
-                  src="coin_img/usdc.png"
-                  style={{ width: 64 }}
-                  roundedCircle
-                />
-              </div>
-            </Col>
             <Col lg={5} md={12}>
               <Row>
                 <Card>
@@ -85,6 +40,52 @@ export default function CenterContent() {
                   </ul>
                 </Card>
               </Row>
+            </Col>
+            <Col
+              lg={7}
+              className="p-4"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                boxSizing: "border-box",
+                justifyContent: "space-between",
+              }}
+            >
+              <div className="centerBox">
+                <Image
+                  src="coin_img/avax.png"
+                  style={{ width: 64 }}
+                  roundedCircle
+                />
+              </div>
+              <div className="centerBox">
+                <Image
+                  src="coin_img/sol.png"
+                  style={{ width: 64 }}
+                  roundedCircle
+                />
+              </div>
+              <div className="centerBox">
+                <Image
+                  src="coin_img/ftm.png"
+                  style={{ width: 64 }}
+                  roundedCircle
+                />
+              </div>
+              <div className="centerBox">
+                <Image
+                  src="coin_img/matic.png"
+                  style={{ width: 64 }}
+                  roundedCircle
+                />
+              </div>
+              <div className="centerBox">
+                <Image
+                  src="coin_img/usdc.png"
+                  style={{ width: 64 }}
+                  roundedCircle
+                />
+              </div>
             </Col>
           </Row>
         </div>

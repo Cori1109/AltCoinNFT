@@ -39,7 +39,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar bg="primary" variant="dark" id="header">
+        <Navbar id="header">
           <Container>
             <Navbar.Brand href="/">
               <img src="logo.png" id="logo" />
@@ -92,6 +92,7 @@ function App() {
         <div className="content" style={{ backgroundImage: "url(3D.png)" }}>
           <Switch>
             <Route path="/app">{/* <Mint /> */}</Route>
+            <Route path="/whitepaper"></Route>
             <Route path="/blog">{/* <Blog /> */}</Route>
             <Route path="/">
               <Home />

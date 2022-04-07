@@ -44,21 +44,23 @@ export default function Banner() {
               </Row>
               <Row>
                 <Col lg={6} md={6}>
-                  <Button variant="secondary" size="lg" active>
-                    WHITEPAPER
-                  </Button>
+                  <a href="/whitepaper">
+                    <Button variant="secondary" size="lg" active>
+                      WHITEPAPER
+                    </Button>
+                  </a>
                 </Col>
                 <Col lg={6} md={6}>
-                  <Button variant="secondary" size="lg" active>
-                    JOIN NOW
-                  </Button>
+                  <a href="/app">
+                    <Button variant="secondary" size="lg" active>
+                      BUY NOW
+                    </Button>
+                  </a>
                 </Col>
               </Row>
             </Col>
             <Col lg={5} className="p-4">
-              <div className="text-white">
-                <Image src="3D.jpg" className="w-100" roundedCircle />
-              </div>
+              <Image src="/images/slide-gif.gif" roundedCircle />
             </Col>
           </Row>
         </div>

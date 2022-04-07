@@ -1,77 +1,70 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
-import { Image } from "react-bootstrap";
+import { Image, Navbar, Nav, Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import Home from "./pages/Home";
 import Mint from "./pages/Mint";
-import Gallery from "./pages/Gallery";
-import MyTokens from "./pages/MyTokens";
+// import Gallery from "./pages/Gallery";
+// import MyTokens from "./pages/MyTokens";
 
-import Login from "./components/Login";
+// import Login from "./components/Login";
 
 function App() {
-  const [web3props, setWeb3Props] = useState({
-    web3: null,
-    accounts: null,
-    contract: null,
-  });
+  // const [web3props, setWeb3Props] = useState({
+  //   web3: null,
+  //   accounts: null,
+  //   contract: null,
+  // });
 
-  // Callback function for the Login component to give us access to the web3 instance and contract functions
-  const OnLogin = function (param) {
-    let { web3, accounts, contract } = param;
-    if (web3 && accounts && accounts.length && contract) {
-      setWeb3Props({ web3, accounts, contract });
-    }
-  };
+  // // Callback function for the Login component to give us access to the web3 instance and contract functions
+  // const OnLogin = function (param) {
+  //   let { web3, accounts, contract } = param;
+  //   if (web3 && accounts && accounts.length && contract) {
+  //     setWeb3Props({ web3, accounts, contract });
+  //   }
+  // };
 
-  // If the wallet is connected, all three values will be set. Use to display the main nav below.
-  const contractAvailable = !(
-    !web3props.web3 &&
-    !web3props.accounts &&
-    !web3props.contract
-  );
-  // Grab the connected wallet address, if available, to pass into the Login component
-  const walletAddress = web3props.accounts ? web3props.accounts[0] : "";
+  // // If the wallet is connected, all three values will be set. Use to display the main nav below.
+  // const contractAvailable = !(
+  //   !web3props.web3 &&
+  //   !web3props.accounts &&
+  //   !web3props.contract
+  // );
+  // // Grab the connected wallet address, if available, to pass into the Login component
+  // const walletAddress = web3props.accounts ? web3props.accounts[0] : "";
 
   return (
     <div className="App">
       <Router>
-        <header>
-          <Link to="/">
-            <img src="logo-11.png" id="logo" className="greenzeta" />
-          </Link>
-          <nav style={{ marginTop: "12px" }}>
-            <ul>
-              {contractAvailable && (
-                <>
-                  <li>
-                    <Link to="/app">
-                      <button className="navBtn">App</button>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/marketplace">
-                      <button className="navBtn">Marketplace</button>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/blog">
-                      <button className="navBtn">Blog</button>
-                    </Link>
-                  </li>
-                </>
-              )}
-              <li>
-                <Login
+        <Navbar bg="primary" variant="dark" id="header">
+          <Container>
+            <Navbar.Brand href="/">
+              <img src="logo.png" id="logo" />
+            </Navbar.Brand>
+            <Nav>
+              <Nav.Link id="headerLink" href="/">
+                HOME
+              </Nav.Link>
+              <Nav.Link id="headerLink" href="#features">
+                FEATURES
+              </Nav.Link>
+              <Nav.Link id="headerLink" href="#roadmap">
+                ROADMAP
+              </Nav.Link>
+              <Nav.Link id="headerLink" href="#faq">
+                FAQ
+              </Nav.Link>
+              <Nav.Link href="/blog">BLOG</Nav.Link>
+              <Nav.Link href="/app">APP</Nav.Link>
+              {/* <Login
                   callback={OnLogin}
                   connected={contractAvailable}
                   address={walletAddress}
-                ></Login>
-              </li>
-            </ul>
+                ></Login> */}
+            </Nav>
             <Toaster
               position="top-right"
               toastOptions={{
@@ -94,16 +87,12 @@ function App() {
                 },
               }}
             />
-          </nav>
-        </header>
+          </Container>
+        </Navbar>
         <div className="content" style={{ backgroundImage: "url(3D.png)" }}>
           <Switch>
-            <Route path="/app">
-              <Mint
-                contract={web3props.contract}
-                address={walletAddress}
-              ></Mint>
-            </Route>
+            <Route path="/app">{/* <Mint /> */}</Route>
+            <Route path="/blog">{/* <Blog /> */}</Route>
             <Route path="/">
               <Home />
             </Route>
@@ -142,7 +131,7 @@ function App() {
               </Link>
             </li>
           </ul>
-          <nav style={{ marginTop: "5px" }}>
+          <nav>
             <ul>
               <li>
                 <Link to="/yutube">

@@ -5,7 +5,7 @@ export default function Testimonials() {
   return (
     <div id="banner" className="banner-container mb-5 mt-5">
       <Container className="p-3">
-        <p style={{margin: 20}}>Testimonials</p>
+        <h5 style={{ margin: 20 }}>Testimonials</h5>
       </Container>
     </div>
   );

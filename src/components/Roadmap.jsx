@@ -13,65 +13,69 @@ export default function Roadmap() {
         </h2>
         <span className="white-divider"></span>
         <RoadmapStep
-          progress={25}
-          percent="25%"
-          title="Phase 1: NFT Minting Platform & Site, "
+          progress={10}
+          percent="10%"
+          title="Phase 1: "
           subTitle="April 4, 2022"
-          detail="Smart contract
-For minting NFT on MATIC
-Website
-1 homepage/salespage for NFT minting. Fully designed and ready for pre-sale traffic
-NFT Art (Provided by client)
-NFT Metadata
-10,000 NFT collection
-Must allow proportion of ownership based on how many NFT’s have been minted
-"
+          detail="
+                      <p><img src='images/checkmark.png' width='20px' /> Website</p>
+<p><img src='images/checkmark.png' width='20px' /> Socials</p>"
         />
         <RoadmapStep
-          progress={50}
-          percent="50%"
-          title="Phase 2 Minting-Staking Contracts, "
+          progress={26}
+          percent="26%"
+          title="Phase 2: "
           subTitle="April 11, 2022"
-          detail="Choose coin to purchase for the day based on 3-month historical averages
-Out of: AVAX, FTM, SOL, MATIC, NU
-Bridge to native chain of that coin (in MATIC/ETH)
-Choose defi protocol for the day
-Swap WMATIC/WETH to 50% the coin chosen + 50% what pair was chosen for the protocol (Ex. AVAX-USDC)
-"
+          detail="<p><img src='images/checkmark.png' width='20px' /> NFT Smart Contracts</p>
+<p><img src='images/checkmark.png' width='20px' /> Smart Contract Audit</p>"
         />
         <RoadmapStep
-          progress={75}
-          percent="75%"
-          title="Phase 3 Smart Contracts, "
+          progress={42}
+          percent="42%"
+          title="Phase 3: "
           subTitle="April 18, 2022"
-          detail="Monthly reward
-Calculate to Admin Area, Update NFT owner dashboard
-When rewards are claimed it triggers
-Day 1: All of that day’s ‘claims’ are sold in one transaction from the farming accounts
-Day 2: All of yesterday’s ‘claims’ are bridged to MATIC blockchain
-Day 3: Rewards are withdrawable when users are logged in
-Monthly rebalance
-The highest yield protocol used on each chain, gets 30% of the other protocols balances moved to it (note: this can be overridden in both % and protocol by team admin)
-Website
-1 Page that the admin can make TX to bridge it over as well as claim/distribute monthly reward to the users(admin page)
-Allow overriding the purchase and protocol selection for the day
-1 Page that displays all the histories of selected coin/defi per day
-This will be the user experiencing frontend so that everyone can see the activity list. ** Can front-end easily allow NFT holders (of some levels) to vote on things
-1 Page that displays all the histories of monthly reward distribution
-"
+          detail="<p><img src='images/checkmark.png' width='20px' /> Pre-Launch</p>
+<p><img src='images/checkmark.png' width='20px' /> Launch</p>"
+        />
+        <RoadmapStep
+          progress={62}
+          percent="62%"
+          title="PHASE 4: "
+          subTitle="April 28, 2022"
+          detail="<p><img src='images/checkmark.png' width='20px' /> Marketing</p>
+<p><img src='images/checkmark.png' width='20px' /> Media</p>
+<p><img src='images/checkmark.png' width='20px' /> Organic</p>
+<p><img src='images/checkmark.png' width='20px' /> Referrals</p>"
+        />
+        <RoadmapStep
+          progress={78}
+          percent="78%"
+          title="PHASE 5: "
+          subTitle="May 8, 2022"
+          detail="<p><img src='images/checkmark.png' width='20px' /> Voting</P>
+<p><img src='images/checkmark.png' width='20px' /> What new coins do we add to the protocol</p>
+<p><img src='images/checkmark.png' width='20px' /> Upgrade NFT Smart Contracts</p>
+<p><img src='images/checkmark.png' width='20px' /> Increase # of Protocol Options</p>
+<p><img src='images/checkmark.png' width='20px' /> Rebalancing</p>"
+        />
+        <RoadmapStep
+          progress={90}
+          percent="90%"
+          title="PHASE 6: "
+          subTitle="May 18, 2022"
+          detail="<p><img src='images/checkmark.png' width='20px' /> DaaP Development</p>
+<p><img src='images/checkmark.png' width='20px' /> ALCS Token</p>
+<p><img src='images/checkmark.png' width='20px' /> Bluechip Nodes</p>
+<p><img src='images/checkmark.png' width='20px' /> Staking Pairs</p>"
         />
         <RoadmapStep
           progress={100}
           percent="100%"
-          title="Marketplace, "
-          subTitle="April 28, 2022"
-          detail="There will be a marketplace smart contract and marketplace webpage.
-Display all NFT Collection
-List NFT
-Show how many unclaimed rewards that NFT has
-Buy NFT
-Transfer NFT
-"
+          title="PHASE 7: "
+          subTitle="May 28, 2022"
+          detail="<p><img src='images/checkmark.png' width='20px' /> Marketing</p>
+<p><img src='images/checkmark.png' width='20px' /> Paid Media</p>
+<p><img src='images/checkmark.png' width='20px' /> Content Marketing</p>"
         />
       </Container>
     </div>

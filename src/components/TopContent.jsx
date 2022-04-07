@@ -3,17 +3,22 @@ import { Row, Col, Container, Button, Image, Card } from "react-bootstrap";
 
 export default function TopContent() {
   return (
-    <div id="banner" className="banner-container mb-5" style={{marginTop: -35}}>
+    <div
+      id="banner"
+      className="banner-container mb-5"
+      style={{ marginTop: -35 }}
+    >
       <Container className="p-3 pt-5">
         <div className="banner-left">
-          <Row style={{justifyContent: "center", display: "flex"}}>
+          <Row style={{ justifyContent: "center", display: "flex" }}>
             <Col lg={10} md={12}>
               <Row>
-                <Card>
-                  <p></p>
-                  <p>
-                    <a href="https://altcoinstaking.io" color="black">AltcoinStaking.IO</a> brings you fully decentralized solutions for earning income across the best altcoins.
-                  </p>
+                <Card className="topContent">
+                  <h5>
+                    <a href="https://altcoinstaking.io">AltcoinStaking.IO</a>{" "}
+                    brings you fully decentralized solutions for earning income
+                    across the best altcoins.
+                  </h5>
                   <p>Some of the reasons HODL'rs love us include:</p>
                   <ul className="textAlignLeft">
                     <li>

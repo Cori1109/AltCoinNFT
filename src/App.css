@@ -56,6 +56,7 @@ footer {
   flex: 1;
   padding: 4em;
   background-attachment: fixed;
+  background-repeat: round;
   /* overflow-x: hidden;
 	overflow-y: visible; */
 }
@@ -155,6 +156,10 @@ footer nav ul li {
   font-size: 1em;
 }
 
+footer ul li a:hover {
+  color: var(--navBtnColor);
+}
+
 footer nav ul .socialBtn {
   margin-top: auto;
   background-color: gray;
@@ -223,13 +228,31 @@ iframe {
   background-color: var(--bkgColor);
 }
 
-.banner-left li {
+#banner li {
   list-style: none;
   margin-top: 20px;
 }
 
-.banner-left li img {
+#banner li img {
   margin-right: 10px;
+}
+
+.topContent {
+  padding-top: 2rem;
+}
+
+.topContent a {
+  color: var(--navBtnColor);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.topContent a:hover {
+  color: var(--navbgColor);
+}
+
+.footerContent ul {
+  margin-bottom: 3.5rem;
 }
 
 #logos {

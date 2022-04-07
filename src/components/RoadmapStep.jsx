@@ -41,7 +41,7 @@ export default function RoadmapStep(props) {
         </div>
         <span className="left-align-divider"></span>
         <p
-          className="text-darkGray font-lg"
+          className="text-darkGray font-lg textAlignLeft"
           dangerouslySetInnerHTML={{ __html: detail }}
         ></p>
       </div>

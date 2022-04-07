@@ -133,42 +133,51 @@ function App() {
             </li>
           </ul>
           <nav>
-            <ul>
+            <ul style={{margin: "unset"}}>
               <li>
-                <Link to="/yutube">
+                <a href="https://www.youtube.com/channel/UCF6X5vqYNDyP5bIOa43d1dw" target={"_blank"}>
                   <Image
                     className="socialBtn yutube"
                     src="yutube.png"
                     height={40}
                   />
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/twitter">
+                <a href="https://twitter.com/altcoin_staking" target={"_blank"}>
                   <Image
                     className="socialBtn twitter"
                     src="twitter.png"
                     height={40}
                   />
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/discord">
+                <a href="https://discord.gg/c5hHCEX2NB" target={"_blank"}>
                   <Image
                     className="socialBtn discord"
                     src="discord.png"
                     height={40}
                   />
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/whitepaper">
+                <a href="https://www.facebook.com/altcoinstaking" target={"_blank"}>
+                  <Image
+                    className="socialBtn facebook"
+                    src="facebook.png"
+                    height={40}
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="/whitepaper" target={"_blank"}>
                   <Image
                     className="socialBtn whitepaper"
                     src="whitepaper.png"
                     height={40}
                   />
-                </Link>
+                </a>
               </li>
             </ul>
           </nav>

@@ -45,7 +45,12 @@ export default function Banner() {
               <Row>
                 <Col lg={6} md={6}>
                   <a href="/whitepaper">
-                    <Button variant="secondary" size="lg" active>
+                    <Button
+                      variant="secondary"
+                      size="lg"
+                      active
+                      style={{ marginBottom: "20px" }}
+                    >
                       WHITEPAPER
                     </Button>
                   </a>

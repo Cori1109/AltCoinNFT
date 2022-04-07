@@ -376,8 +376,15 @@ iframe {
   border-radius: 6px;
 }
 
+.chainCard {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
 .bottomContent {
-  height: 700px;
+  min-height: 700px;
   background-repeat: no-repeat;
   font-weight: 700;
   background-size: 100% 100%;
@@ -385,7 +392,7 @@ iframe {
 
 .bottomCard {
   margin-top: 3rem;
-  width: 50%;
+  width: 490px;
   border-radius: 20%;
   padding: 2rem;
   background-color: transparent !important;
@@ -815,17 +822,12 @@ div.App div.launch-board div.clock-listgroupitem p.unit {
 }
 
 div.App div#roadmap {
-  background-color: var(--bgColor);
-  color: #000;
-  padding: 5px;
+  background-color: transparent;
 }
 
-div.App div#roadmap .white-divider {
-  display: block;
-  height: 2px;
-  background: #f7941d;
-  width: 15rem;
-  margin: 20px auto;
+div.App div#roadmap img {
+  width: 100%;
+  border-radius: 20px;
 }
 
 div.App div#roadmap div.roadmapstep {
@@ -1383,6 +1385,10 @@ svg.svg-inline--fa.fa-discord.fa-w-20 {
   }
 }
 @media screen and (max-width: 1200px) {
+  .chainCard {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   .font-xxxl {
     font-size: xx-large;
   }

@@ -41,16 +41,7 @@ export default function CenterContent() {
                 </Card>
               </Row>
             </Col>
-            <Col
-              lg={7}
-              className="p-4"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                boxSizing: "border-box",
-                justifyContent: "space-between",
-              }}
-            >
+            <Col lg={7} className="chainCard p-4">
               <div className="centerBox">
                 <Image
                   src="coin_img/avax.png"

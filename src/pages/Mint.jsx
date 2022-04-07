@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Nav, Navbar, Container } from "react-bootstrap";
+import toast, { Toaster } from "react-hot-toast";
 import { ethers } from "ethers";
-import toast, { Toast } from "react-hot-toast";
 import web3 from "web3";
 import ContractAbi from "../config/StakeInPool.json";
 import { Button, Card } from "react-bootstrap";
@@ -188,7 +189,36 @@ export default function Mint(props) {
 
   // Display the minting gallery
   return (
-    <div className="page mint">
+    <div className="page-mint">
+      <Navbar id="header">
+        <Container>
+          <Navbar.Brand href="/">
+            <img src="logo.png" id="logo" alt="logo" />
+          </Navbar.Brand>
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              success: {
+                style: {
+                  background: "white",
+                  paddingLeft: 40,
+                  paddingRight: 40,
+                  fontWeight: 500,
+                },
+              },
+              error: {
+                style: {
+                  background: "white",
+                  color: "black",
+                  paddingLeft: 40,
+                  paddingRight: 40,
+                  fontWeight: 500,
+                },
+              },
+            }}
+          />
+        </Container>
+      </Navbar>
       {isPaused ? (
         <div>
           <h1>Minting has been paused!</h1>

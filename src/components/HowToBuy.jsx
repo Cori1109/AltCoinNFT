@@ -3,7 +3,7 @@ import { Row, Col, Container, Button, Image, Card } from "react-bootstrap";
 
 export default function HowToBuy() {
   return (
-    <div id="banner" className="banner-container mb-5 mt-5">
+    <div id="faq" className="banner-container mb-5 mt-5">
       <Container className="p-3">
         <div className="banner-left">
           <Row style={{ justifyContent: "space-between" }}>

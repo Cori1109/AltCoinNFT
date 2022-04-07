@@ -7,6 +7,8 @@ import "./App.css";
 
 import Home from "./pages/Home";
 import Mint from "./pages/Mint";
+import Blog from "./pages/Blog";
+import Whitepaper from "./pages/Whitepaper";
 // import Gallery from "./pages/Gallery";
 // import MyTokens from "./pages/MyTokens";
 
@@ -39,64 +41,20 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar id="header">
-          <Container>
-            <Navbar.Brand href="/">
-              <img src="logo.png" id="logo" />
-            </Navbar.Brand>
-            <Nav>
-              <Nav.Link id="headerLink" href="/">
-                HOME
-              </Nav.Link>
-              <Nav.Link id="headerLink" href="#features">
-                FEATURES
-              </Nav.Link>
-              <Nav.Link id="headerLink" href="#roadmap">
-                ROADMAP
-              </Nav.Link>
-              <Nav.Link id="headerLink" href="#faq">
-                FAQ
-              </Nav.Link>
-              <Nav.Link href="/blog">BLOG</Nav.Link>
-              <Nav.Link href="/app">APP</Nav.Link>
-              {/* <Login
-                  callback={OnLogin}
-                  connected={contractAvailable}
-                  address={walletAddress}
-                ></Login> */}
-            </Nav>
-            <Toaster
-              position="top-right"
-              toastOptions={{
-                success: {
-                  style: {
-                    background: "white",
-                    paddingLeft: 40,
-                    paddingRight: 40,
-                    fontWeight: 500,
-                  },
-                },
-                error: {
-                  style: {
-                    background: "white",
-                    color: "black",
-                    paddingLeft: 40,
-                    paddingRight: 40,
-                    fontWeight: 500,
-                  },
-                },
-              }}
-            />
-          </Container>
-        </Navbar>
         <div
           className="content"
           style={{ backgroundImage: "url(3D.png)", backgroundColor: "#20313c" }}
         >
           <Switch>
-            <Route path="/app">{/* <Mint /> */}</Route>
-            <Route path="/whitepaper"></Route>
-            <Route path="/blog">{/* <Blog /> */}</Route>
+            <Route path="/app">
+              <Mint />
+            </Route>
+            <Route path="/whitepaper">
+              <Whitepaper />
+            </Route>
+            <Route path="/blog">
+              <Blog />
+            </Route>
             <Route path="/">
               <Home />
             </Route>

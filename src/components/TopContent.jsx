@@ -4,7 +4,7 @@ import { Row, Col, Container, Button, Image, Card } from "react-bootstrap";
 export default function TopContent() {
   return (
     <div
-      id="banner"
+      id="features"
       className="banner-container mb-5"
       style={{ marginTop: -35 }}
     >

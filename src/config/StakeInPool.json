@@ -1,5 +1,11 @@
 [
-  { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_teamWallet", "type": "address" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
   {
     "anonymous": false,
     "inputs": [
@@ -95,15 +101,15 @@
     "type": "event"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "name": "LEVEL_MAX",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "inputs": [],
+    "name": "MINTING_PAUSED",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
-    "name": "MINTING_PAUSED",
+    "name": "REWARDING_PAUSED",
     "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "view",
     "type": "function"
@@ -116,6 +122,13 @@
     "name": "approve",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "balance",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -135,11 +148,27 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "distributeAll",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [
       { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
     ],
     "name": "getApproved",
     "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getHolderList",
+    "outputs": [
+      { "internalType": "address[]", "name": "", "type": "address[]" }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
@@ -188,6 +217,15 @@
     "outputs": [
       { "internalType": "uint256[]", "name": "", "type": "uint256[]" }
     ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_address", "type": "address" }
+    ],
+    "name": "monthlyReward",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -265,6 +303,24 @@
   },
   {
     "inputs": [
+      { "internalType": "uint256[]", "name": "_percent", "type": "uint256[]" }
+    ],
+    "name": "setLevelPercent",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256[]", "name": "_point", "type": "uint256[]" }
+    ],
+    "name": "setLevelPoint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
       {
         "internalType": "uint256",
         "name": "_maxItemsPerWallet",
@@ -295,6 +351,22 @@
     "type": "function"
   },
   {
+    "inputs": [{ "internalType": "bool", "name": "_Paused", "type": "bool" }],
+    "name": "setRewardingPaused",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_address", "type": "address" }
+    ],
+    "name": "setTeamWalletAddress",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [
       { "internalType": "bytes4", "name": "interfaceId", "type": "bytes4" }
     ],
@@ -307,6 +379,13 @@
     "inputs": [],
     "name": "symbol",
     "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "teamWallet",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },

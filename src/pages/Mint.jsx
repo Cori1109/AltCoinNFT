@@ -59,7 +59,7 @@ export default function Mint(props) {
     bronze: {
       name: "Bronze",
       color: "bisque",
-      price: 0.02,
+      price: 0.04,
       total: 2500,
     },
     silver: {

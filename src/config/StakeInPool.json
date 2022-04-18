@@ -149,6 +149,13 @@
   },
   {
     "inputs": [],
+    "name": "deposit",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "distributeAll",
     "outputs": [],
     "stateMutability": "nonpayable",

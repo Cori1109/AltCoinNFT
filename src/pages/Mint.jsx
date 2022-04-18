@@ -34,9 +34,15 @@ export default function Mint(props) {
   });
 
   // Callback function for the Login component to give us access to the web3 instance and contract functions
-  const OnLogin = function (param) {
+  const OnLogin = async function (param) {
     let { web3, accounts, contract } = param;
     if (web3 && accounts && accounts.length && contract) {
+      const chainId = await web3.eth.getChainId();
+      if (chainId != process.env.REACT_APP_CHAIN_ID) {
+        toast.error("Please connect to Polygon Network!");
+        contractAvailable = false;
+        return;
+      }
       setWeb3Props({ web3, accounts, contract });
     }
   };

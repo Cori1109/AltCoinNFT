@@ -33,7 +33,7 @@ const NFTCard = ({ name, image, color, unit, minted, total, doMint }) => {
     >
       <Card.Body>
         <Card.Title style={{ color: "black" }}>{name}</Card.Title>
-        <Card.Img src={image}></Card.Img>
+        <video src={image} autoplay="" loop="true" className="card-img" />
         <Card.Text style={{ color: "black" }}>
           {" "}
           {minted} / {total}

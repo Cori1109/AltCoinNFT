@@ -58,31 +58,36 @@ export default function Mint(props) {
   const NFT = {
     starter: {
       name: "Starter",
-      color: "dimgray",
+      color: "#cbcbcb",
+      image: "images/Starter-NFT.mp4",
       price: 0.01,
       total: 3800,
     },
     bronze: {
       name: "Bronze",
-      color: "bisque",
+      color: "#fe722d",
+      image: "images/Bronze-NFT.mp4",
       price: 0.04,
       total: 2500,
     },
     silver: {
       name: "Silver",
-      color: "silver",
+      color: "#fffffd",
+      image: "images/Silver-NFT.mp4",
       price: 0.08,
       total: 1900,
     },
     gold: {
       name: "Gold",
-      color: "gold",
+      color: "#fedc67",
+      image: "images/Gold-NFT.mp4",
       price: 0.16,
       total: 1000,
     },
     platinum: {
       name: "Platinum",
-      color: "dodgerblue",
+      color: "#dbdcf4",
+      image: "images/Platinum-NFT.mp4",
       price: 0.32,
       total: 800,
     },
@@ -267,7 +272,7 @@ export default function Mint(props) {
               color={NFT["starter"].color}
               minted={mintedCNT[0]}
               total={NFT["starter"].total}
-              image={"images/1.jpg"}
+              image={NFT["starter"].image}
               doMint={(cntMint) => handleChangeStarter(cntMint)}
             ></NFTCard>
 
@@ -277,7 +282,7 @@ export default function Mint(props) {
               color={NFT["bronze"].color}
               minted={mintedCNT[1]}
               total={NFT["bronze"].total}
-              image={"images/2.jpg"}
+              image={NFT["bronze"].image}
               doMint={(cntMint) => handleChangeBronze(cntMint)}
             ></NFTCard>
 
@@ -287,7 +292,7 @@ export default function Mint(props) {
               color={NFT["silver"].color}
               minted={mintedCNT[2]}
               total={NFT["silver"].total}
-              image={"images/3.jpg"}
+              image={NFT["silver"].image}
               doMint={(cntMint) => handleChangeSilver(cntMint)}
             ></NFTCard>
 
@@ -297,7 +302,7 @@ export default function Mint(props) {
               color={NFT["gold"].color}
               minted={mintedCNT[3]}
               total={NFT["gold"].total}
-              image={"images/4.jpg"}
+              image={NFT["gold"].image}
               doMint={(cntMint) => handleChangeGold(cntMint)}
             ></NFTCard>
 
@@ -307,7 +312,7 @@ export default function Mint(props) {
               color={NFT["platinum"].color}
               minted={mintedCNT[4]}
               total={NFT["platinum"].total}
-              image={"images/5.jpg"}
+              image={NFT["platinum"].image}
               doMint={(cntMint) => handleChangePlatinum(cntMint)}
             ></NFTCard>
           </div>

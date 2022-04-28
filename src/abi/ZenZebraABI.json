@@ -1,7 +1,12 @@
 [
   {
     "inputs": [
-      { "internalType": "address", "name": "_teamWallet", "type": "address" }
+      { "internalType": "address", "name": "_teamWallet", "type": "address" },
+      {
+        "internalType": "address",
+        "name": "_donationWallet",
+        "type": "address"
+      }
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
@@ -60,6 +65,44 @@
     "anonymous": false,
     "inputs": [
       {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "ClaimRewards",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_tokenId",
+        "type": "uint256"
+      }
+    ],
+    "name": "Mint",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
         "indexed": true,
         "internalType": "address",
         "name": "previousOwner",
@@ -73,6 +116,25 @@
       }
     ],
     "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_tokenId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_attribute",
+        "type": "uint256"
+      }
+    ],
+    "name": "SetAttribute",
     "type": "event"
   },
   {
@@ -99,6 +161,13 @@
     ],
     "name": "Transfer",
     "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "CURRENT_STAGE",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
     "inputs": [],
@@ -149,6 +218,13 @@
   },
   {
     "inputs": [],
+    "name": "claimRewards",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "deposit",
     "outputs": [],
     "stateMutability": "payable",
@@ -156,9 +232,9 @@
   },
   {
     "inputs": [],
-    "name": "distributeAll",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "name": "donationWallet",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -183,7 +259,7 @@
     "inputs": [
       { "internalType": "address", "name": "_address", "type": "address" }
     ],
-    "name": "getReward",
+    "name": "getRewards",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
@@ -207,11 +283,7 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "uint256[]",
-        "name": "numberOfTokens",
-        "type": "uint256[]"
-      }
+      { "internalType": "uint256", "name": "_attribute", "type": "uint256" }
     ],
     "name": "mint",
     "outputs": [],
@@ -228,7 +300,9 @@
     "type": "function"
   },
   {
-    "inputs": [],
+    "inputs": [
+      { "internalType": "uint256", "name": "_stage", "type": "uint256" }
+    ],
     "name": "mintedCnt",
     "outputs": [
       { "internalType": "uint256[]", "name": "", "type": "uint256[]" }
@@ -257,6 +331,13 @@
     "name": "ownerOf",
     "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "purchase",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -310,18 +391,18 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256[]", "name": "_percent", "type": "uint256[]" }
+      { "internalType": "address", "name": "_address", "type": "address" }
     ],
-    "name": "setLevelPercent",
+    "name": "setDonationWalletAddress",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256[]", "name": "_point", "type": "uint256[]" }
+      { "internalType": "uint256[]", "name": "_percent", "type": "uint256[]" }
     ],
-    "name": "setLevelPoint",
+    "name": "setLevelPercent",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -360,6 +441,15 @@
   {
     "inputs": [{ "internalType": "bool", "name": "_Paused", "type": "bool" }],
     "name": "setRewardingPaused",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_stage", "type": "uint256" }
+    ],
+    "name": "setStage",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -449,17 +539,6 @@
     "name": "transferOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "address_", "type": "address" }
-    ],
-    "name": "walletOfOwner",
-    "outputs": [
-      { "internalType": "uint256[]", "name": "", "type": "uint256[]" }
-    ],
-    "stateMutability": "view",
     "type": "function"
   },
   {

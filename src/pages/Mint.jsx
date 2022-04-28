@@ -2,18 +2,20 @@ import React, { useState, useEffect } from "react";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import toast, { Toaster } from "react-hot-toast";
 import { ethers } from "ethers";
+import { useEthers } from "@usedapp/core";
 import web3 from "web3";
-import ContractAbi from "../config/StakeInPool.json";
+import ContractAbi from "../abi/ZenZebraABI.json";
 import { Button, Card } from "react-bootstrap";
 import NFTCard from "../components/NFTCard";
-import Login from "../components/Login";
+import ConnectButton from "../components/ConnectButton";
 require("dotenv").config();
 
 // IMPORTANT NOTE: In this example, the URI is used as a unique key to identify
 // a token associated with an asset. This is fine for demonstration, but in a
 // production project you should have a unique key associated with the asset
 // and store that in the contract along with the URI.
-export default function Mint(props) {
+export default function Mint() {
+  const { account } = useEthers();
   const [balance, setBalance] = useState([]);
   const [balMatic, setBalMatic] = useState([]);
   const [sum, setSum] = useState(0);
@@ -25,36 +27,9 @@ export default function Mint(props) {
   const [cntSilver, setCntSilver] = useState(0);
   const [cntGold, setCntGold] = useState(0);
   const [cntPlatinum, setCntPlatinum] = useState(0);
-  const MAX_ELEMENTS = 100000;
+  const MAX_ELEMENTS = 10000;
   const [mintedCNT, setMintedCNT] = useState([0, 0, 0, 0, 0]);
-  const [web3props, setWeb3Props] = useState({
-    web3: null,
-    accounts: null,
-    contract: null,
-  });
 
-  // Callback function for the Login component to give us access to the web3 instance and contract functions
-  const OnLogin = async function (param) {
-    let { web3, accounts, contract } = param;
-    if (web3 && accounts && accounts.length && contract) {
-      const chainId = await web3.eth.getChainId();
-      if (chainId != process.env.REACT_APP_CHAIN_ID) {
-        toast.error("Please connect to Polygon Network!");
-        contractAvailable = false;
-        return;
-      }
-      setWeb3Props({ web3, accounts, contract });
-    }
-  };
-
-  // If the wallet is connected, all three values will be set. Use to display the main nav below.
-  const contractAvailable = !(
-    !web3props.web3 &&
-    !web3props.accounts &&
-    !web3props.contract
-  );
-  // Grab the connected wallet address, if available, to pass into the Login component
-  const walletAddress = web3props.accounts ? web3props.accounts[0] : "";
   const NFT = {
     starter: {
       name: "Starter",
@@ -104,7 +79,7 @@ export default function Mint(props) {
       ContractAbi,
       provider.getSigner()
     );
-    provider.getBalance(walletAddress).then((balance) => {
+    provider.getBalance(account).then((balance) => {
       const balanceInMatic = ethers.utils.formatEther(balance);
       setBalMatic(balanceInMatic);
     });
@@ -115,9 +90,7 @@ export default function Mint(props) {
     let _purLimit = web3.utils.toDecimal(await SIPContract.maxItemsPerWallet());
     setPurLimit(_purLimit);
     let totalSupply = web3.utils.toDecimal(await SIPContract.totalSupply());
-    let _balance = web3.utils.toDecimal(
-      await SIPContract.balanceOf(walletAddress)
-    );
+    let _balance = web3.utils.toDecimal(await SIPContract.balanceOf(account));
     setBalance(_balance);
     let _mintedCNT = await SIPContract.mintedCnt();
     let _tmp = [];
@@ -229,11 +202,7 @@ export default function Mint(props) {
             <img src="logo.png" id="logo" alt="logo" />
           </Navbar.Brand>
           <Nav>
-            <Login
-              callback={OnLogin}
-              connected={contractAvailable}
-              address={walletAddress}
-            />
+            <ConnectButton />
           </Nav>
           <Toaster
             position="top-right"

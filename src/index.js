@@ -1,14 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { DAppProvider } from "@usedapp/core";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Constants } from "./config/constants";
+
+const chainId = process.env.REACT_APP_CHAIN_ID;
+
+const config = {
+  readOnlyChainId: chainId,
+  readOnlyUrls: {
+    [chainId]: Constants.rpcURL.chainId,
+  },
+};
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <DAppProvider config={config}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </DAppProvider>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

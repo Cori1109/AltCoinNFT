@@ -20,6 +20,7 @@ export default function Mint() {
   const [balMatic, setBalMatic] = useState([]);
   const [sum, setSum] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [stage, setStage] = useState(0);
   const [purLimit, setPurLimit] = useState(10);
 
   const [cntStarter, setCntStarter] = useState(0);
@@ -27,7 +28,7 @@ export default function Mint() {
   const [cntSilver, setCntSilver] = useState(0);
   const [cntGold, setCntGold] = useState(0);
   const [cntPlatinum, setCntPlatinum] = useState(0);
-  const MAX_ELEMENTS = 10000;
+  const MAX_ELEMENTS = 9999;
   const [mintedCNT, setMintedCNT] = useState([0, 0, 0, 0, 0]);
 
   const NFT = {
@@ -35,36 +36,36 @@ export default function Mint() {
       name: "Starter",
       color: "#cbcbcb",
       image: "images/Starter-NFT.mp4",
-      price: 0.01,
-      total: 3800,
+      price: 0.015,
+      total: [2923, 2633, 2000],
     },
     bronze: {
       name: "Bronze",
       color: "#fe722d",
       image: "images/Bronze-NFT.mp4",
       price: 0.04,
-      total: 2500,
+      total: [250, 300, 400],
     },
     silver: {
       name: "Silver",
       color: "#fffffd",
       image: "images/Silver-NFT.mp4",
       price: 0.08,
-      total: 1900,
+      total: [100, 150, 300],
     },
     gold: {
       name: "Gold",
       color: "#fedc67",
       image: "images/Gold-NFT.mp4",
       price: 0.16,
-      total: 1000,
+      total: [50, 200, 400],
     },
     platinum: {
       name: "Platinum",
       color: "#dbdcf4",
       image: "images/Platinum-NFT.mp4",
-      price: 0.32,
-      total: 800,
+      price: 0.5,
+      total: [10, 50, 233],
     },
   };
 
@@ -85,21 +86,25 @@ export default function Mint() {
     });
 
     let pauseVal = await SIPContract.MINTING_PAUSED();
+    let _stage = await SIPContract.CURRENT_STAGE();
     setIsPaused(pauseVal);
+    setStage(_stage);
 
     let _purLimit = web3.utils.toDecimal(await SIPContract.maxItemsPerWallet());
     setPurLimit(_purLimit);
     let totalSupply = web3.utils.toDecimal(await SIPContract.totalSupply());
     let _balance = web3.utils.toDecimal(await SIPContract.balanceOf(account));
     setBalance(_balance);
-    let _mintedCNT = await SIPContract.mintedCnt();
+    let _mintedCNT = await SIPContract.mintedCnt(_stage);
     let _tmp = [];
+    let _total_stage = 0;
     for (let i = 0; i < _mintedCNT.length; i++) {
       _tmp[i] = web3.utils.toDecimal(_mintedCNT[i]);
+      _total_stage += _tmp[i];
     }
     setMintedCNT(_tmp);
 
-    if (totalSupply === MAX_ELEMENTS) {
+    if (totalSupply === MAX_ELEMENTS || _total_stage === 3333) {
       console.log("Sold Out");
     }
   };
@@ -240,7 +245,7 @@ export default function Mint() {
               unit={NFT["starter"].price}
               color={NFT["starter"].color}
               minted={mintedCNT[0]}
-              total={NFT["starter"].total}
+              total={NFT["starter"].total[stage]}
               image={NFT["starter"].image}
               doMint={(cntMint) => handleChangeStarter(cntMint)}
             ></NFTCard>
@@ -250,7 +255,7 @@ export default function Mint() {
               unit={NFT["bronze"].price}
               color={NFT["bronze"].color}
               minted={mintedCNT[1]}
-              total={NFT["bronze"].total}
+              total={NFT["bronze"].total[stage]}
               image={NFT["bronze"].image}
               doMint={(cntMint) => handleChangeBronze(cntMint)}
             ></NFTCard>
@@ -260,7 +265,7 @@ export default function Mint() {
               unit={NFT["silver"].price}
               color={NFT["silver"].color}
               minted={mintedCNT[2]}
-              total={NFT["silver"].total}
+              total={NFT["silver"].total[stage]}
               image={NFT["silver"].image}
               doMint={(cntMint) => handleChangeSilver(cntMint)}
             ></NFTCard>
@@ -270,7 +275,7 @@ export default function Mint() {
               unit={NFT["gold"].price}
               color={NFT["gold"].color}
               minted={mintedCNT[3]}
-              total={NFT["gold"].total}
+              total={NFT["gold"].total[stage]}
               image={NFT["gold"].image}
               doMint={(cntMint) => handleChangeGold(cntMint)}
             ></NFTCard>
@@ -280,7 +285,7 @@ export default function Mint() {
               unit={NFT["platinum"].price}
               color={NFT["platinum"].color}
               minted={mintedCNT[4]}
-              total={NFT["platinum"].total}
+              total={NFT["platinum"].total[stage]}
               image={NFT["platinum"].image}
               doMint={(cntMint) => handleChangePlatinum(cntMint)}
             ></NFTCard>
